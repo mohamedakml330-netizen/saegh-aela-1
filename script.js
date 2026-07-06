@@ -15,47 +15,100 @@ headers:{
 }
 );
 
+
 let data = await response.json();
 
 let goldUSD = data.price;
 
-// تحويل الأونصة إلى جرام
-let gram24 = goldUSD / 31.1035;
 
-// تحويل الدولار للجنيه (هنضيف مصدر الدولار بعدين)
+// سعر الدولار مؤقتاً
 let dollar = 50;
 
-let price24 = gram24 * dollar;
 
-let price21 = price24 * 0.875;
-let price18 = price24 * 0.75;
-let price14 = price24 * 0.583;
+// حساب سعر الجرام
+let gram24 = (goldUSD / 31.1035) * dollar;
+
+let gram21 = gram24 * 21 / 24;
+let gram18 = gram24 * 18 / 24;
+let gram14 = gram24 * 14 / 24;
 
 
-document.getElementById("g24buy").innerHTML =
-price24.toFixed(2);
+// دالة عرض شراء وبيع
+function setGold(buy,sell,value){
 
-document.getElementById("g21buy").innerHTML =
-price21.toFixed(2);
+document.getElementById(buy).innerHTML =
+Math.round(value) + " جنيه";
 
-document.getElementById("g18buy").innerHTML =
-price18.toFixed(2);
+document.getElementById(sell).innerHTML =
+Math.round(value + 50) + " جنيه";
 
-document.getElementById("g14buy").innerHTML =
-price14.toFixed(2);
+}
+
+
+// العيارات
+setGold("g24buy","g24sell",gram24);
+
+setGold("g21buy","g21sell",gram21);
+
+setGold("g18buy","g18sell",gram18);
+
+setGold("g14buy","g14sell",gram14);
+
+
+// الجنيه الذهب
+setGold(
+"coinbuy",
+"coinsell",
+gram21 * 8
+);
+
+
+// نصف جنيه
+setGold(
+"halfbuy",
+"halfsell",
+gram21 * 4
+);
+
+
+// ربع جنيه
+setGold(
+"quarterbuy",
+"quartersell",
+gram21 * 2
+);
+
+
+// الأونصة بالجنيه
+setGold(
+"ouncebuy",
+"ouncesell",
+goldUSD * dollar
+);
+
+
+// تحديث الوقت
+document.querySelector(".update").innerHTML =
+"🔄 آخر تحديث: الآن";
 
 
 }
 
 catch(error){
 
-console.log("خطأ في تحميل الذهب");
+console.log(error);
+
+document.querySelector(".update").innerHTML =
+"⚠️ خطأ في تحميل الأسعار";
 
 }
 
 }
 
 
+// تشغيل التطبيق
 updateGold();
 
+
+// تحديث كل دقيقة
 setInterval(updateGold,60000);
