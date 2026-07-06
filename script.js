@@ -1,4 +1,4 @@
-const API_KEY = "ضع_API_KEY_هنا";
+const API_KEY = "goldapi-395db2c868032a93dd29f6071dcd1585-io";
 
 async function updateGold(){
 
