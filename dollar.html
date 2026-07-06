@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>سعر الدولار - صائغ العيلة</title>
+<title>سعر الدولار اليوم</title>
 
 <style>
 body{
@@ -19,32 +19,29 @@ body{
     background:gold;
     color:black;
     padding:20px;
-    font-size:24px;
+    font-size:25px;
     font-weight:bold;
 }
 
-.card{
-    margin:40px auto;
-    width:320px;
+.box{
     background:#222;
-    border:1px solid gold;
-    border-radius:12px;
-    padding:20px;
+    margin:30px auto;
+    padding:25px;
+    width:80%;
+    max-width:400px;
+    border-radius:15px;
+    box-shadow:0 0 15px #000;
 }
 
-.buy{
-    color:#00ff66;
-    font-size:25px;
+.price{
+    font-size:30px;
+    color:#00ff88;
+    margin:15px;
 }
 
-.sell{
-    color:#ff5555;
-    font-size:25px;
-}
-
-.update{
+.time{
     color:#aaa;
-    margin-top:15px;
+    font-size:14px;
 }
 </style>
 
@@ -53,52 +50,73 @@ body{
 <body>
 
 <div class="header">
-💵 سعر الدولار
+💵 سعر الدولار اليوم
 </div>
 
-<div class="card">
+<div class="box">
 
-<h2>الدولار الأمريكي 🇺🇸</h2>
+<h2>شراء</h2>
+<div class="price" id="buy">جاري التحميل...</div>
 
-<p class="buy" id="buy">
-🟢 شراء: جاري التحميل...
-</p>
+<h2>بيع</h2>
+<div class="price" id="sell">جاري التحميل...</div>
 
-<p class="sell" id="sell">
-🔴 بيع: جاري التحميل...
-</p>
-
-<p class="update" id="time">
-آخر تحديث: ---
-</p>
+<div class="time" id="update"></div>
 
 </div>
 
 
 <script>
 
-function updateDollar(){
+async function updateDollar(){
 
-// مؤقتًا مكان مصدر السعر
-let buy = "50.00";
-let sell = "50.50";
+try{
+
+let response = await fetch(
+"https://open.er-api.com/v6/latest/USD"
+);
+
+let data = await response.json();
+
+let egp = data.rates.EGP;
+
+
+// حساب تقريبي للشراء والبيع
+let buy = egp - 0.10;
+let sell = egp + 0.10;
 
 
 document.getElementById("buy").innerHTML =
-"🟢 شراء: " + buy + " جنيه";
+buy.toFixed(2) + " جنيه";
 
 document.getElementById("sell").innerHTML =
-"🔴 بيع: " + sell + " جنيه";
+sell.toFixed(2) + " جنيه";
 
 
-document.getElementById("time").innerHTML =
-"آخر تحديث: " + new Date().toLocaleTimeString();
+document.getElementById("update").innerHTML =
+"آخر تحديث: " + new Date().toLocaleString("ar-EG");
+
+
+}
+
+catch(error){
+
+document.getElementById("buy").innerHTML =
+"خطأ في التحميل";
+
+document.getElementById("sell").innerHTML =
+"خطأ في التحميل";
+
+}
 
 }
 
 
-// تحديث تلقائي كل دقيقة
+// تشغيل أول مرة
 updateDollar();
+
+
+// تحديث كل دقيقة
 setInterval(updateDollar,60000);
 
 
