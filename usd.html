@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سعر الدولار</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Tahoma, Arial;
+    background:#111;
+    color:#fff;
+}
+
+header{
+    background:#d4af37;
+    color:#000;
+    text-align:center;
+    padding:18px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.container{
+    max-width:500px;
+    margin:30px auto;
+    padding:15px;
+}
+
+.card{
+    background:#1f1f1f;
+    border:1px solid #d4af37;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+}
+
+.card h2{
+    margin-bottom:20px;
+}
+
+.price{
+    font-size:35px;
+    color:#d4af37;
+    margin:20px 0;
+    font-weight:bold;
+}
+
+.info{
+    color:#ccc;
+    margin-top:10px;
+}
+
+button{
+    margin-top:25px;
+    background:#d4af37;
+    color:#000;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+}
+
+button:hover{
+    opacity:.9;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+💵 سعر الدولار
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>الدولار الأمريكي</h2>
+
+<div class="price" id="price">
+--.-- جنيه
+</div>
+
+<div class="info">
+آخر تحديث: سيتم إضافته لاحقًا
+</div>
+
+<button onclick="refreshPrice()">
+تحديث السعر
+</button>
+
+</div>
+
+</div>
+
+<script>
+function refreshPrice(){
+    alert("سيتم ربط السعر الحقيقي في المرحلة القادمة.");
+}
+</script>
+
+</body>
+</html>
