@@ -3,64 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>أسعار الذهب - صائغ العيلة</title>
+
+<title>أسعار الذهب اليوم</title>
 
 <style>
 body{
     margin:0;
-    font-family:Tahoma, Arial, sans-serif;
-    background:#0b0b0b;
-    color:#fff;
+    background:#111;
+    color:white;
+    font-family:Tahoma,Arial;
+    text-align:center;
 }
 
 .header{
     background:gold;
-    color:#000;
-    text-align:center;
-    padding:18px;
-    font-size:24px;
+    color:black;
+    padding:20px;
+    font-size:25px;
     font-weight:bold;
 }
 
-.container{
-    padding:15px;
-}
-
-.card{
-    background:#1a1a1a;
-    border:1px solid gold;
-    border-radius:12px;
-    padding:15px;
-    margin-bottom:15px;
-}
-
-.title{
-    color:gold;
-    font-size:20px;
-    font-weight:bold;
-    margin-bottom:10px;
+.box{
+    background:#222;
+    margin:25px auto;
+    padding:20px;
+    width:85%;
+    max-width:400px;
+    border-radius:15px;
 }
 
 .price{
-    display:flex;
-    justify-content:space-between;
+    color:#ffd700;
+    font-size:25px;
+    margin:12px;
 }
 
-.buy{
-    color:#00ff66;
-}
-
-.sell{
-    color:#ff5555;
-}
-
-.back{
-    display:block;
-    margin-top:20px;
-    text-align:center;
-    color:gold;
-    text-decoration:none;
-    font-size:18px;
+#update{
+    color:#aaa;
+    font-size:14px;
 }
 </style>
 
@@ -69,60 +49,82 @@ body{
 <body>
 
 <div class="header">
-💎 أسعار الذهب
+🪙 أسعار الذهب اليوم
 </div>
 
-<div class="container">
+<div class="box">
 
-<div class="card">
-<div class="title">عيار 24</div>
-<div class="price">
-<span class="buy">🟢 شراء: ---</span>
-<span class="sell">🔴 بيع: ---</span>
-</div>
-</div>
+<h2>عيار 24</h2>
+<div class="price" id="g24">جاري التحميل...</div>
 
-<div class="card">
-<div class="title">عيار 21</div>
-<div class="price">
-<span class="buy">🟢 شراء: ---</span>
-<span class="sell">🔴 بيع: ---</span>
-</div>
-</div>
+<h2>عيار 21</h2>
+<div class="price" id="g21">جاري التحميل...</div>
 
-<div class="card">
-<div class="title">عيار 18</div>
-<div class="price">
-<span class="buy">🟢 شراء: ---</span>
-<span class="sell">🔴 بيع: ---</span>
-</div>
-</div>
+<h2>عيار 18</h2>
+<div class="price" id="g18">جاري التحميل...</div>
 
-<div class="card">
-<div class="title">عيار 14</div>
-<div class="price">
-<span class="buy">🟢 شراء: ---</span>
-<span class="sell">🔴 بيع: ---</span>
-</div>
-</div>
-
-<div class="card">
-<div class="title">الجنيه الذهب</div>
-<div class="price">
-<span>السعر: ---</span>
-</div>
-</div>
-
-<div class="card">
-<div class="title">آخر تحديث</div>
-<div class="price">
-<span>--:--</span>
-</div>
-</div>
-
-<a class="back" href="index.html">⬅ العودة إلى الصفحة الرئيسية</a>
+<div id="update"></div>
 
 </div>
+
+
+<script>
+
+async function goldPrice(){
+
+try{
+
+let res = await fetch(
+"https://api.metals.live/v1/spot/gold"
+);
+
+let data = await res.json();
+
+let ounce = data[0].price;
+
+
+// تحويل أونصة إلى جرام
+let gram24 = ounce / 31.1035;
+
+
+// تحويل دولار لجنيه (تقدر تغيره بسعر الدولار عندك)
+let dollar = 50;
+
+let gold24 = gram24 * dollar;
+
+let gold21 = gold24 * 0.875;
+
+let gold18 = gold24 * 0.75;
+
+
+document.getElementById("g24").innerHTML =
+gold24.toFixed(0)+" جنيه";
+
+document.getElementById("g21").innerHTML =
+gold21.toFixed(0)+" جنيه";
+
+document.getElementById("g18").innerHTML =
+gold18.toFixed(0)+" جنيه";
+
+
+document.getElementById("update").innerHTML =
+"آخر تحديث: "+new Date().toLocaleString("ar-EG");
+
+}
+
+catch(e){
+
+document.getElementById("g24").innerHTML="تعذر التحميل";
+
+}
+
+}
+
+goldPrice();
+
+setInterval(goldPrice,60000);
+
+</script>
 
 </body>
 </html>
