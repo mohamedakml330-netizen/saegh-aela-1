@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>السبائك</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Tahoma, Arial;
+    background:#0b0b0b;
+    color:#fff;
+}
+
+.header{
+    background:gold;
+    color:#000;
+    text-align:center;
+    padding:18px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.container{
+    padding:15px;
+}
+
+.card{
+    background:#1a1a1a;
+    border:1px solid gold;
+    padding:18px;
+    margin-bottom:12px;
+    border-radius:12px;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card:hover{
+    background:gold;
+    color:#000;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header">🪙 السبائك</div>
+
+<div class="container">
+
+<div class="card" onclick="openCompany('btc')">BTC</div>
+<div class="card" onclick="openCompany('sam')">SAM</div>
+<div class="card" onclick="openCompany('lazordy')">لازوردي</div>
+<div class="card" onclick="openCompany('egypt')">إيجيبت جولد</div>
+<div class="card" onclick="openCompany('newgold')">نيو جولد</div>
+
+</div>
+
+<script>
+function openCompany(name){
+    window.location.href = "company.html?name=" + name;
+}
+</script>
+
+</body>
+</html>
