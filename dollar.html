@@ -53,27 +53,9 @@ body{
 </div>
 
 <script>
-async function getPrice() {
-    document.getElementById("price").innerText = "جاري التحميل...";
-
-    try {
-        const response = await fetch("https://open.er-api.com/v6/latest/USD");
-        const data = await response.json();
-
-        if (data && data.rates && data.rates.EGP) {
-            document.getElementById("price").innerText =
-                data.rates.EGP.toFixed(2) + " جنيه";
-        } else {
-            document.getElementById("price").innerText =
-                "تعذر جلب السعر";
-        }
-    } catch (e) {
-        document.getElementById("price").innerText =
-            "خطأ في الاتصال";
-    }
-}
-
-getPrice();
+<script>
+document.getElementById("price").innerText = "50.00 جنيه";
+</script>
 </script>
 
 </body>
