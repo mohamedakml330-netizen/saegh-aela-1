@@ -8,7 +8,7 @@
 <style>
 body{
     margin:0;
-    font-family:Tahoma;
+    font-family:Tahoma, Arial, sans-serif;
     background:#0b0b0b;
     color:#fff;
 }
@@ -17,8 +17,8 @@ body{
     background:gold;
     color:#000;
     text-align:center;
-    padding:15px;
-    font-size:22px;
+    padding:18px;
+    font-size:24px;
     font-weight:bold;
 }
 
@@ -31,28 +31,39 @@ body{
     border:1px solid gold;
     border-radius:12px;
     padding:15px;
-    margin:10px 0;
+    margin-bottom:12px;
 }
 
 .title{
     color:gold;
-    font-size:18px;
+    font-size:20px;
     font-weight:bold;
+    margin-bottom:10px;
 }
 
 .price{
+    display:flex;
+    justify-content:space-between;
     margin-top:8px;
+}
+
+.buy{
+    color:#00ff66;
+}
+
+.sell{
+    color:#ff4d4d;
 }
 
 .back{
     display:block;
-    text-align:center;
     margin-top:20px;
+    text-align:center;
     color:gold;
     text-decoration:none;
+    font-size:18px;
 }
 </style>
-
 </head>
 
 <body>
@@ -63,25 +74,37 @@ body{
 
 <div class="card">
 <div class="title">عيار 24</div>
-<div class="price">شراء: --- | بيع: ---</div>
+<div class="price">
+<span class="buy">🟢 شراء: ---</span>
+<span class="sell">🔴 بيع: ---</span>
+</div>
 </div>
 
 <div class="card">
 <div class="title">عيار 21</div>
-<div class="price">شراء: --- | بيع: ---</div>
+<div class="price">
+<span class="buy">🟢 شراء: ---</span>
+<span class="sell">🔴 بيع: ---</span>
+</div>
 </div>
 
 <div class="card">
 <div class="title">عيار 18</div>
-<div class="price">شراء: --- | بيع: ---</div>
+<div class="price">
+<span class="buy">🟢 شراء: ---</span>
+<span class="sell">🔴 بيع: ---</span>
+</div>
 </div>
 
 <div class="card">
-<div class="title">الجنيه الذهب</div>
-<div class="price">--- جنيه</div>
+<div class="title">عيار 14</div>
+<div class="price">
+<span class="buy">🟢 شراء: ---</span>
+<span class="sell">🔴 بيع: ---</span>
+</div>
 </div>
 
-<a class="back" href="index.html">⬅ الرجوع للرئيسية</a>
+<a class="back" href="index.html">⬅ العودة إلى الرئيسية</a>
 
 </div>
 
