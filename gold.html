@@ -4,23 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>تطبيق دهب</title>
+<title>أسعار الذهب - صائغ العيله</title>
 
 <style>
 body{
     margin:0;
-    background:#111;
+    background:#0b0b0b;
     color:white;
-    font-family:Tahoma,Arial;
+    font-family:Tahoma, Arial, sans-serif;
 }
 
 .header{
-    background:#d4af37;
-    color:#000;
-    text-align:center;
+    background:linear-gradient(135deg,#d4af37,#ffdf75);
+    color:#111;
     padding:20px;
-    font-size:28px;
+    text-align:center;
+    font-size:24px;
     font-weight:bold;
+}
+
+.note{
+    text-align:center;
+    color:#ddd;
+    font-size:14px;
+    padding:15px;
+}
+
+.update{
+    text-align:center;
+    color:#d4af37;
+    font-size:13px;
 }
 
 .container{
@@ -28,164 +41,163 @@ body{
 }
 
 .card{
-    background:#222;
-    border-radius:15px;
-    padding:15px;
+    background:#171717;
+    border:1px solid #d4af37;
+    border-radius:18px;
+    padding:18px;
     margin-bottom:15px;
-    border:1px solid #b8860b;
+    box-shadow:0 0 15px #000;
 }
 
-.name{
-    color:#ffd700;
-    font-size:23px;
+.title{
+    color:#d4af37;
+    font-size:22px;
     font-weight:bold;
     margin-bottom:15px;
 }
 
-.line{
+.price{
     display:flex;
-    justify-content:space-between;
-    font-size:20px;
-    padding:8px;
-}
-
-.buy{
-    color:#ff3333;
-}
-
-.sell{
-    color:#00e676;
-}
-
-.update{
+    justify-content:space-around;
     text-align:center;
+}
+
+.price div{
+    width:45%;
+    background:#222;
+    padding:12px;
+    border-radius:12px;
+}
+
+.label{
     color:#aaa;
     font-size:14px;
 }
 
+.number{
+    color:white;
+    font-size:22px;
+    margin-top:5px;
+}
+
+.footer{
+    text-align:center;
+    color:#888;
+    padding:20px;
+    font-size:13px;
+}
 </style>
+
 </head>
 
 <body>
 
 <div class="header">
-🪙 تطبيق دهب
+🥇 صائغ العيله
+<br>
+أسعار الذهب
 </div>
+
+
+<div class="note">
+متوسط أسعار سوق الذهب الاسترشادي المصري
+<br>
+يخصم محل التجزئة عمولة عند شراء الكسر بداية من 1%
+</div>
+
+
+<div class="update">
+آخر تحديث: يتم التحديث يومياً
+</div>
+
 
 <div class="container">
 
-<div class="card">
-<div class="name">عيار 24</div>
-<div class="line buy">شراء: <span id="b24">--</span></div>
-<div class="line sell">بيع: <span id="s24">--</span></div>
-</div>
-
 
 <div class="card">
-<div class="name">عيار 21</div>
-<div class="line buy">شراء: <span id="b21">--</span></div>
-<div class="line sell">بيع: <span id="s21">--</span></div>
+<div class="title">ذهب عيار 24</div>
+
+<div class="price">
+<div>
+<span class="label">شراء</span>
+<div class="number">0000</div>
 </div>
 
-
-<div class="card">
-<div class="name">عيار 18</div>
-<div class="line buy">شراء: <span id="b18">--</span></div>
-<div class="line sell">بيع: <span id="s18">--</span></div>
+<div>
+<span class="label">بيع</span>
+<div class="number">0000</div>
+</div>
 </div>
 
-
-<div class="card">
-<div class="name">عيار 14</div>
-<div class="line buy">شراء: <span id="b14">--</span></div>
-<div class="line sell">بيع: <span id="s14">--</span></div>
 </div>
+
 
 
 <div class="card">
-<div class="name">جنيه ذهب</div>
-<div class="line buy">شراء: <span id="coinB">--</span></div>
-<div class="line sell">بيع: <span id="coinS">--</span></div>
+<div class="title">ذهب عيار 21</div>
+
+<div class="price">
+<div>
+<span class="label">شراء</span>
+<div class="number">0000</div>
 </div>
+
+<div>
+<span class="label">بيع</span>
+<div class="number">0000</div>
+</div>
+</div>
+
+</div>
+
+
 
 
 <div class="card">
-<div class="name">نصف جنيه ذهب</div>
-<div class="line buy">شراء: <span id="halfB">--</span></div>
-<div class="line sell">بيع: <span id="halfS">--</span></div>
+<div class="title">ذهب عيار 18</div>
+
+<div class="price">
+<div>
+<span class="label">شراء</span>
+<div class="number">0000</div>
 </div>
+
+<div>
+<span class="label">بيع</span>
+<div class="number">0000</div>
+</div>
+</div>
+
+</div>
+
+
 
 
 <div class="card">
-<div class="name">أونصة ذهب</div>
-<div class="line buy">شراء: <span id="ounceB">--</span></div>
-<div class="line sell">بيع: <span id="ounceS">--</span></div>
+<div class="title">جنيه ذهب</div>
+
+<div class="price">
+<div>
+<span class="label">شراء</span>
+<div class="number">0000</div>
+</div>
+
+<div>
+<span class="label">بيع</span>
+<div class="number">0000</div>
+</div>
+</div>
+
 </div>
 
 
-<div class="update" id="time">
-جاري التحديث...
-</div>
-
 </div>
 
 
-<script>
+<div class="footer">
+© صائغ العيله - أسعار الذهب
+</div>
 
-function updateGold(){
-
-// سعر تجريبي للتأكد من الشكل
-let g24 = 5000;
-
-let g21 = g24 * .875;
-let g18 = g24 * .75;
-let g14 = g24 * .583;
-
-
-function set(id,buy,sell){
-document.getElementById(id+"B").innerHTML=
-buy.toFixed(0)+" جنيه";
-
-document.getElementById(id+"S").innerHTML=
-sell.toFixed(0)+" جنيه";
-}
-
-
-set("24",g24-50,g24+50);
-set("21",g21-50,g21+50);
-set("18",g18-50,g18+50);
-set("14",g14-50,g14+50);
-
-
-document.getElementById("coinB").innerHTML=
-((g21*8)-100).toFixed(0)+" جنيه";
-
-document.getElementById("coinS").innerHTML=
-((g21*8)+100).toFixed(0)+" جنيه";
-
-
-document.getElementById("halfB").innerHTML=
-((g21*4)-50).toFixed(0)+" جنيه";
-
-document.getElementById("halfS").innerHTML=
-((g21*4)+50).toFixed(0)+" جنيه";
-
-
-document.getElementById("ounceB").innerHTML=
-(g24*31.1035-100).toFixed(0)+" جنيه";
-
-document.getElementById("ounceS").innerHTML=
-(g24*31.1035+100).toFixed(0)+" جنيه";
-
-
-document.getElementById("time").innerHTML=
-"آخر تحديث: "+new Date().toLocaleString("ar-EG");
-
-}
-
-updateGold();
-
-</script>
 
 </body>
 </html>
