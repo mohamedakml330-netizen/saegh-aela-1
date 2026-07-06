@@ -41,11 +41,9 @@ color:#d4af37;
 margin-bottom:15px;
 }
 
-
 .container{
 padding:15px;
 }
-
 
 .table-head{
 display:flex;
@@ -56,77 +54,54 @@ padding:15px;
 border-radius:15px;
 color:#ffd700;
 font-weight:bold;
-margin-bottom:12px;
 }
 
-
 .card{
-
 background:linear-gradient(145deg,#181818,#090909);
 border:1px solid #b8860b;
 border-radius:18px;
 padding:18px;
-margin-bottom:15px;
-
+margin:15px 0;
 box-shadow:0 0 15px #000;
-
 }
 
-
 .gold-name{
-
 font-size:21px;
 color:#ffd700;
 font-weight:bold;
 margin-bottom:15px;
-
 }
 
-
 .row{
-
 display:flex;
 justify-content:space-around;
 text-align:center;
-
 }
 
-
 .box{
-
 width:45%;
 background:#111;
 border-radius:12px;
 padding:12px;
-
 }
-
 
 .label{
-
 color:#aaa;
 font-size:14px;
-
 }
 
-
 .price{
-
 font-size:22px;
 font-weight:bold;
 margin-top:5px;
-
+color:white;
 }
 
-
 .footer{
-
 text-align:center;
 color:#777;
 padding:25px;
-
 }
-
 
 </style>
 
@@ -166,89 +141,82 @@ padding:25px;
 </div>
 
 
-
+<!-- عيار 24 -->
 <div class="card">
 <div class="gold-name">🥇 ذهب عيار 24</div>
 <div class="row">
-<div class="box">
-<div class="label">شراء</div>
-<div class="price"><span id="g24buy">تحميل...</span></div>
-</div>
-
-<div class="box">
-<div class="label">بيع</div>
-<div class="price"><span id="g24buy">تحميل...</span></div>
-</div>
+<div class="box"><div class="label">شراء</div><div class="price" id="g24buy">تحميل...</div></div>
+<div class="box"><div class="label">بيع</div><div class="price" id="g24sell">تحميل...</div></div>
 </div>
 </div>
 
 
-
+<!-- عيار 21 -->
 <div class="card">
 <div class="gold-name">🥇 ذهب عيار 21</div>
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
-<div class="box"><div class="label">بيع</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
+<div class="box"><div class="label">شراء</div><div class="price" id="g21buy">تحميل...</div></div>
+<div class="box"><div class="label">بيع</div><div class="price" id="g21sell">تحميل...</div></div>
 </div>
 </div>
 
 
-
+<!-- عيار 18 -->
 <div class="card">
 <div class="gold-name">🥇 ذهب عيار 18</div>
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
-<div class="box"><div class="label">بيع</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
+<div class="box"><div class="label">شراء</div><div class="price" id="g18buy">تحميل...</div></div>
+<div class="box"><div class="label">بيع</div><div class="price" id="g18sell">تحميل...</div></div>
 </div>
 </div>
 
 
-
+<!-- عيار 14 -->
 <div class="card">
 <div class="gold-name">🥇 ذهب عيار 14</div>
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
-<div class="box"><div class="label">بيع</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
+<div class="box"><div class="label">شراء</div><div class="price" id="g14buy">تحميل...</div></div>
+<div class="box"><div class="label">بيع</div><div class="price" id="g14sell">تحميل...</div></div>
 </div>
 </div>
 
 
-
+<!-- جنيه ذهب -->
 <div class="card">
 <div class="gold-name">🪙 جنيه ذهب</div>
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
-<div class="box"><div class="label">بيع</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
+<div class="box"><div class="label">شراء</div><div class="price" id="coinbuy">تحميل...</div></div>
+<div class="box"><div class="label">بيع</div><div class="price" id="coinsell">تحميل...</div></div>
 </div>
 </div>
 
 
-
+<!-- نصف جنيه -->
 <div class="card">
 <div class="gold-name">🪙 نصف جنيه ذهب</div>
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
-<div class="box"><div class="label">بيع</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
+<div class="box"><div class="label">شراء</div><div class="price" id="halfbuy">تحميل...</div></div>
+<div class="box"><div class="label">بيع</div><div class="price" id="halfsell">تحميل...</div></div>
 </div>
 </div>
 
 
-
+<!-- ربع جنيه -->
 <div class="card">
 <div class="gold-name">🪙 ربع جنيه ذهب</div>
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
-<div class="box"><div class="label">بيع</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
+<div class="box"><div class="label">شراء</div><div class="price" id="quarterbuy">تحميل...</div></div>
+<div class="box"><div class="label">بيع</div><div class="price" id="quartersell">تحميل...</div></div>
 </div>
 </div>
 
 
-
+<!-- أونصة -->
 <div class="card">
 <div class="gold-name">🌕 الأونصة الذهبية</div>
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
-<div class="box"><div class="label">بيع</div><div class="price"><span id="g24buy">تحميل...</span></div></div>
+<div class="box"><div class="label">شراء</div><div class="price" id="ouncebuy">تحميل...</div></div>
+<div class="box"><div class="label">بيع</div><div class="price" id="ouncesell">تحميل...</div></div>
 </div>
 </div>
 
@@ -260,6 +228,8 @@ padding:25px;
 © 2026 صائغ العيله
 </div>
 
+
+<script src="script.js"></script>
 
 </body>
 </html>
