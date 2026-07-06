@@ -2,12 +2,11 @@ const API_KEY = "goldapi-395db2c868032a93dd29f6071dcd1585-io";
 
 async function updateGold(){
 
-try {
+try{
 
 let response = await fetch(
-"https://www.goldapi.io/api/XAU/USD",
+"https://www.goldapi.io/api/XAU/EGP",
 {
-method:"GET",
 headers:{
 "x-access-token": API_KEY,
 "Content-Type":"application/json"
@@ -15,79 +14,75 @@ headers:{
 }
 );
 
-
 let data = await response.json();
 
-let goldUSD = data.price;
+let ounceEGP = data.price;
+
+// الأونصة 31.1035 جرام
+let g24 = ounceEGP / 31.1035;
+
+let g21 = g24 * 21 / 24;
+let g18 = g24 * 18 / 24;
+let g14 = g24 * 14 / 24;
 
 
-// سعر الدولار مؤقتاً
-let dollar = 50;
+// فرق بيع تقريبي
+function putPrice(buyId,sellId,value){
 
+let buy = value;
+let sell = value + 50;
 
-// حساب سعر الجرام
-let gram24 = (goldUSD / 31.1035) * dollar;
+document.getElementById(buyId).innerHTML =
+Math.round(buy) + " جنيه";
 
-let gram21 = gram24 * 21 / 24;
-let gram18 = gram24 * 18 / 24;
-let gram14 = gram24 * 14 / 24;
-
-
-// دالة عرض شراء وبيع
-function setGold(buy,sell,value){
-
-document.getElementById(buy).innerHTML =
-Math.round(value) + " جنيه";
-
-document.getElementById(sell).innerHTML =
-Math.round(value + 50) + " جنيه";
+document.getElementById(sellId).innerHTML =
+Math.round(sell) + " جنيه";
 
 }
 
 
 // العيارات
-setGold("g24buy","g24sell",gram24);
+putPrice("g24buy","g24sell",g24);
 
-setGold("g21buy","g21sell",gram21);
+putPrice("g21buy","g21sell",g21);
 
-setGold("g18buy","g18sell",gram18);
+putPrice("g18buy","g18sell",g18);
 
-setGold("g14buy","g14sell",gram14);
+putPrice("g14buy","g14sell",g14);
 
 
-// الجنيه الذهب
-setGold(
+// جنيه ذهب 8 جرام عيار 21
+putPrice(
 "coinbuy",
 "coinsell",
-gram21 * 8
+g21 * 8
 );
 
 
-// نصف جنيه
-setGold(
+// نصف جنيه 4 جرام
+putPrice(
 "halfbuy",
 "halfsell",
-gram21 * 4
+g21 * 4
 );
 
 
-// ربع جنيه
-setGold(
+// ربع جنيه 2 جرام
+putPrice(
 "quarterbuy",
 "quartersell",
-gram21 * 2
+g21 * 2
 );
 
 
-// الأونصة بالجنيه
-setGold(
+// الأونصة
+putPrice(
 "ouncebuy",
 "ouncesell",
-goldUSD * dollar
+ounceEGP
 );
 
 
-// تحديث الوقت
 document.querySelector(".update").innerHTML =
 "🔄 آخر تحديث: الآن";
 
@@ -99,16 +94,13 @@ catch(error){
 console.log(error);
 
 document.querySelector(".update").innerHTML =
-"⚠️ خطأ في تحميل الأسعار";
+"⚠️ تعذر تحميل الأسعار";
 
 }
 
 }
 
 
-// تشغيل التطبيق
 updateGold();
 
-
-// تحديث كل دقيقة
 setInterval(updateGold,60000);
