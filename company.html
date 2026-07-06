@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تفاصيل السبائك</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Tahoma, Arial;
+    background:#0b0b0b;
+    color:#fff;
+}
+
+.header{
+    background:gold;
+    color:#000;
+    text-align:center;
+    padding:18px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.container{
+    padding:15px;
+}
+
+.card{
+    background:#1a1a1a;
+    border:1px solid gold;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:10px;
+    text-align:center;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card:hover{
+    background:gold;
+    color:#000;
+}
+
+.price-box{
+    margin-top:20px;
+    padding:20px;
+    border:1px solid gold;
+    border-radius:12px;
+    text-align:center;
+    display:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header" id="title">🪙 الشركة</div>
+
+<div class="container">
+
+<div class="card" onclick="showPrice('1g')">1 جرام</div>
+<div class="card" onclick="showPrice('2.5g')">2.5 جرام</div>
+<div class="card" onclick="showPrice('5g')">5 جرام</div>
+<div class="card" onclick="showPrice('10g')">10 جرام</div>
+<div class="card" onclick="showPrice('20g')">20 جرام</div>
+<div class="card" onclick="showPrice('50g')">50 جرام</div>
+<div class="card" onclick="showPrice('100g')">100 جرام</div>
+
+<div class="price-box" id="priceBox">
+    <h2>السعر</h2>
+    <p id="priceText">-- جنيه</p>
+</div>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const company = params.get("name");
+
+document.getElementById("title").innerText = "🪙 " + company;
+
+function showPrice(weight){
+    document.getElementById("priceBox").style.display = "block";
+    
+    // سعر تجريبي دلوقتي
+    document.getElementById("priceText").innerText =
+        "سعر " + weight + " = سيتم التحديث لاحقًا";
+}
+</script>
+
+</body>
+</html>
