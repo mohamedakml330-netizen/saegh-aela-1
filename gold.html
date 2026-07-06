@@ -4,190 +4,252 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>أسعار الذهب - صائغ العيله</title>
+<title>صائغ العيله - أسعار الذهب</title>
 
 <style>
+
 body{
-    margin:0;
-    background:#0b0b0b;
-    color:white;
-    font-family:Tahoma, Arial, sans-serif;
+margin:0;
+background:#050505;
+color:white;
+font-family:Tahoma,Arial,sans-serif;
 }
 
 .header{
-    background:linear-gradient(135deg,#d4af37,#ffdf75);
-    color:#111;
-    padding:20px;
-    text-align:center;
-    font-size:24px;
-    font-weight:bold;
+background:linear-gradient(135deg,#8b6508,#ffd700,#8b6508);
+color:#111;
+text-align:center;
+padding:25px;
+font-size:28px;
+font-weight:bold;
 }
 
-.note{
-    text-align:center;
-    color:#ddd;
-    font-size:14px;
-    padding:15px;
+.subtitle{
+text-align:center;
+padding:15px;
+color:#ddd;
+font-size:16px;
+}
+
+.subtitle span{
+color:#ffd700;
 }
 
 .update{
-    text-align:center;
-    color:#d4af37;
-    font-size:13px;
+text-align:center;
+color:#d4af37;
+margin-bottom:15px;
 }
+
 
 .container{
-    padding:15px;
+padding:15px;
 }
+
+
+.table-head{
+display:flex;
+justify-content:space-between;
+background:#151515;
+border:1px solid #b8860b;
+padding:15px;
+border-radius:15px;
+color:#ffd700;
+font-weight:bold;
+margin-bottom:12px;
+}
+
 
 .card{
-    background:#171717;
-    border:1px solid #d4af37;
-    border-radius:18px;
-    padding:18px;
-    margin-bottom:15px;
-    box-shadow:0 0 15px #000;
+
+background:linear-gradient(145deg,#181818,#090909);
+border:1px solid #b8860b;
+border-radius:18px;
+padding:18px;
+margin-bottom:15px;
+
+box-shadow:0 0 15px #000;
+
 }
 
-.title{
-    color:#d4af37;
-    font-size:22px;
-    font-weight:bold;
-    margin-bottom:15px;
+
+.gold-name{
+
+font-size:21px;
+color:#ffd700;
+font-weight:bold;
+margin-bottom:15px;
+
 }
 
-.price{
-    display:flex;
-    justify-content:space-around;
-    text-align:center;
+
+.row{
+
+display:flex;
+justify-content:space-around;
+text-align:center;
+
 }
 
-.price div{
-    width:45%;
-    background:#222;
-    padding:12px;
-    border-radius:12px;
+
+.box{
+
+width:45%;
+background:#111;
+border-radius:12px;
+padding:12px;
+
 }
+
 
 .label{
-    color:#aaa;
-    font-size:14px;
+
+color:#aaa;
+font-size:14px;
+
 }
 
-.number{
-    color:white;
-    font-size:22px;
-    margin-top:5px;
+
+.price{
+
+font-size:22px;
+font-weight:bold;
+margin-top:5px;
+
 }
+
 
 .footer{
-    text-align:center;
-    color:#888;
-    padding:20px;
-    font-size:13px;
+
+text-align:center;
+color:#777;
+padding:25px;
+
 }
+
+
 </style>
 
 </head>
 
+
 <body>
 
+
 <div class="header">
-🥇 صائغ العيله
+💎 صائغ العيله
 <br>
 أسعار الذهب
 </div>
 
 
-<div class="note">
+<div class="subtitle">
 متوسط أسعار سوق الذهب الاسترشادي المصري
 <br>
+<span>
 يخصم محل التجزئة عمولة عند شراء الكسر بداية من 1%
+</span>
 </div>
 
 
 <div class="update">
-آخر تحديث: يتم التحديث يومياً
+🔄 آخر تحديث: تلقائي
 </div>
 
 
 <div class="container">
 
 
-<div class="card">
-<div class="title">ذهب عيار 24</div>
-
-<div class="price">
-<div>
-<span class="label">شراء</span>
-<div class="number">0000</div>
-</div>
-
-<div>
-<span class="label">بيع</span>
-<div class="number">0000</div>
-</div>
-</div>
-
+<div class="table-head">
+<span>العيار / الوحدة</span>
+<span>شراء &nbsp;&nbsp; بيع</span>
 </div>
 
 
 
 <div class="card">
-<div class="title">ذهب عيار 21</div>
-
-<div class="price">
-<div>
-<span class="label">شراء</span>
-<div class="number">0000</div>
+<div class="gold-name">🥇 ذهب عيار 24</div>
+<div class="row">
+<div class="box">
+<div class="label">شراء</div>
+<div class="price">0000</div>
 </div>
 
-<div>
-<span class="label">بيع</span>
-<div class="number">0000</div>
+<div class="box">
+<div class="label">بيع</div>
+<div class="price">0000</div>
 </div>
 </div>
-
 </div>
-
 
 
 
 <div class="card">
-<div class="title">ذهب عيار 18</div>
-
-<div class="price">
-<div>
-<span class="label">شراء</span>
-<div class="number">0000</div>
-</div>
-
-<div>
-<span class="label">بيع</span>
-<div class="number">0000</div>
+<div class="gold-name">🥇 ذهب عيار 21</div>
+<div class="row">
+<div class="box"><div class="label">شراء</div><div class="price">0000</div></div>
+<div class="box"><div class="label">بيع</div><div class="price">0000</div></div>
 </div>
 </div>
-
-</div>
-
 
 
 
 <div class="card">
-<div class="title">جنيه ذهب</div>
-
-<div class="price">
-<div>
-<span class="label">شراء</span>
-<div class="number">0000</div>
-</div>
-
-<div>
-<span class="label">بيع</span>
-<div class="number">0000</div>
+<div class="gold-name">🥇 ذهب عيار 18</div>
+<div class="row">
+<div class="box"><div class="label">شراء</div><div class="price">0000</div></div>
+<div class="box"><div class="label">بيع</div><div class="price">0000</div></div>
 </div>
 </div>
 
+
+
+<div class="card">
+<div class="gold-name">🥇 ذهب عيار 14</div>
+<div class="row">
+<div class="box"><div class="label">شراء</div><div class="price">0000</div></div>
+<div class="box"><div class="label">بيع</div><div class="price">0000</div></div>
+</div>
+</div>
+
+
+
+<div class="card">
+<div class="gold-name">🪙 جنيه ذهب</div>
+<div class="row">
+<div class="box"><div class="label">شراء</div><div class="price">0000</div></div>
+<div class="box"><div class="label">بيع</div><div class="price">0000</div></div>
+</div>
+</div>
+
+
+
+<div class="card">
+<div class="gold-name">🪙 نصف جنيه ذهب</div>
+<div class="row">
+<div class="box"><div class="label">شراء</div><div class="price">0000</div></div>
+<div class="box"><div class="label">بيع</div><div class="price">0000</div></div>
+</div>
+</div>
+
+
+
+<div class="card">
+<div class="gold-name">🪙 ربع جنيه ذهب</div>
+<div class="row">
+<div class="box"><div class="label">شراء</div><div class="price">0000</div></div>
+<div class="box"><div class="label">بيع</div><div class="price">0000</div></div>
+</div>
+</div>
+
+
+
+<div class="card">
+<div class="gold-name">🌕 الأونصة الذهبية</div>
+<div class="row">
+<div class="box"><div class="label">شراء</div><div class="price">0000</div></div>
+<div class="box"><div class="label">بيع</div><div class="price">0000</div></div>
+</div>
 </div>
 
 
@@ -195,7 +257,7 @@ body{
 
 
 <div class="footer">
-© صائغ العيله - أسعار الذهب
+© 2026 صائغ العيله
 </div>
 
 
