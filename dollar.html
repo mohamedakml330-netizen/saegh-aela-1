@@ -1,12 +1,18 @@
+<div id="price">جاري التحميل...</div>
+
 <script>
+window.onload = function () {
+    getPrice();
+};
+
 async function getPrice(){
     try{
-        const res = await fetch("https://api.exchangerate.host/latest?base=USD&symbols=EGP");
+        const res = await fetch("https://open.er-api.com/v6/latest/USD");
         const data = await res.json();
 
         let price = data.rates.EGP;
 
-        // تقريب بسيط للسوق المصري
+        // فرق بسيط للسوق المصري
         price = price + 0.5;
 
         document.getElementById("price").innerText =
@@ -14,9 +20,7 @@ async function getPrice(){
     }
     catch(e){
         document.getElementById("price").innerText =
-            "مش قادر يجيب السعر";
+            "حصل خطأ في جلب السعر";
     }
 }
-
-getPrice();
 </script>
