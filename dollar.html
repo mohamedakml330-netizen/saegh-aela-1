@@ -1,84 +1,7 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سعر الدولار</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Tahoma, Arial;
-    background:#0f0f0f;
-    color:#fff;
-}
-
-.header{
-    background:gold;
-    color:#000;
-    text-align:center;
-    padding:18px;
-    font-size:24px;
-    font-weight:bold;
-}
-
-.card{
-    width:90%;
-    max-width:400px;
-    margin:40px auto;
-    background:#1a1a1a;
-    border:1px solid gold;
-    border-radius:12px;
-    padding:25px;
-    text-align:center;
-}
-
-.price{
-    font-size:35px;
-    color:gold;
-    margin:20px 0;
-    font-weight:bold;
-}
-
-.small{
-    color:#aaa;
-    font-size:14px;
-}
-
-button{
-    margin-top:20px;
-    background:gold;
-    color:#000;
-    border:none;
-    padding:12px 20px;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:16px;
-    font-weight:bold;
-}
-</style>
-</head>
-
-<body>
-
-<div class="header">💵 سعر الدولار</div>
-
-<div class="card">
-
-<h2>الدولار الأمريكي</h2>
-
-<div class="price" id="price">جاري التحميل...</div>
-
-<div class="small">يتم التحديث من الإنترنت تلقائيًا</div>
-
-<button onclick="getPrice()">تحديث السعر</button>
-
-</div>
-
 <script>
 async function getPrice(){
     try{
-        const res = await fetch("https://api.exchangerate.host/latest?base=USD&symbols=EGP");
+        const res = await fetch("https://open.er-api.com/v6/latest/USD");
         const data = await res.json();
 
         const price = data.rates.EGP;
@@ -88,13 +11,9 @@ async function getPrice(){
     }
     catch(e){
         document.getElementById("price").innerText =
-            "حصل خطأ في جلب السعر";
+            "مش قادر يجيب السعر دلوقتي";
     }
 }
 
-// تشغيل تلقائي أول ما الصفحة تفتح
 getPrice();
 </script>
-
-</body>
-</html>
