@@ -1,1 +1,69 @@
-<h1>TEST</h1>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سبايك</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Tahoma;
+    background:#0f0f0f;
+    color:#fff;
+}
+
+.header{
+    background:gold;
+    color:#000;
+    padding:15px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.container{
+    padding:10px;
+}
+
+.btn{
+    background:#1e1e1e;
+    border:1px solid gold;
+    padding:15px;
+    margin:10px 0;
+    border-radius:10px;
+    text-align:center;
+    cursor:pointer;
+    font-size:18px;
+    transition:0.2s;
+}
+
+.btn:active{
+    transform:scale(0.98);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header">🏆 شركات السبائك</div>
+
+<div class="container">
+
+<div class="btn" onclick="go('btc')">BTC</div>
+<div class="btn" onclick="go('sam')">SAM</div>
+<div class="btn" onclick="go('lazordy')">لازوردي</div>
+<div class="btn" onclick="go('egypt')">إيجيبت جولد</div>
+<div class="btn" onclick="go('newgold')">نيو جولد</div>
+
+</div>
+
+<script>
+function go(name){
+    window.location.href = "company.html?name=" + name;
+}
+</script>
+
+</body>
+</html>
