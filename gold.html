@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>أسعار الذهب اليوم</title>
+<title>تطبيق دهب</title>
 
 <style>
 body{
@@ -19,26 +19,44 @@ body{
     background:gold;
     color:black;
     padding:20px;
-    font-size:25px;
+    font-size:28px;
     font-weight:bold;
 }
 
 .box{
     background:#222;
-    margin:25px auto;
+    width:90%;
+    max-width:450px;
+    margin:20px auto;
     padding:20px;
-    width:85%;
-    max-width:400px;
     border-radius:15px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    background:#333;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+    font-size:20px;
 }
 
 .price{
     color:#ffd700;
-    font-size:25px;
-    margin:12px;
 }
 
-#update{
+.buy{
+    color:#00ff88;
+    font-size:22px;
+}
+
+.sell{
+    color:#ff5555;
+    font-size:22px;
+}
+
+.update{
     color:#aaa;
     font-size:14px;
 }
@@ -49,80 +67,145 @@ body{
 <body>
 
 <div class="header">
-🪙 أسعار الذهب اليوم
+🪙 تطبيق دهب
 </div>
 
 <div class="box">
 
-<h2>عيار 24</h2>
-<div class="price" id="g24">جاري التحميل...</div>
+<div class="row">
+<span>عيار 24</span>
+<span class="price" id="g24">تحميل...</span>
+</div>
 
-<h2>عيار 21</h2>
-<div class="price" id="g21">جاري التحميل...</div>
+<div class="row">
+<span>عيار 21</span>
+<span class="price" id="g21">تحميل...</span>
+</div>
 
-<h2>عيار 18</h2>
-<div class="price" id="g18">جاري التحميل...</div>
+<div class="row">
+<span>عيار 18</span>
+<span class="price" id="g18">تحميل...</span>
+</div>
 
-<div id="update"></div>
+<div class="row">
+<span>عيار 14</span>
+<span class="price" id="g14">تحميل...</span>
+</div>
+
+<div class="row">
+<span>جنيه ذهب</span>
+<span class="price" id="coin">تحميل...</span>
+</div>
+
+<div class="row">
+<span>نصف جنيه ذهب</span>
+<span class="price" id="half">تحميل...</span>
+</div>
+
+<div class="row">
+<span>أونصة ذهب</span>
+<span class="price" id="ounce">تحميل...</span>
+</div>
+
+<hr>
+
+<h3 class="buy">سعر الشراء</h3>
+<div id="buy">تحميل...</div>
+
+<h3 class="sell">سعر البيع</h3>
+<div id="sell">تحميل...</div>
+
+<p class="update" id="time"></p>
 
 </div>
 
 
 <script>
 
-async function goldPrice(){
+async function updateGold(){
 
 try{
 
-let res = await fetch(
+let response = await fetch(
 "https://api.metals.live/v1/spot/gold"
 );
 
-let data = await res.json();
+let data = await response.json();
 
-let ounce = data[0].price;
-
-
-// تحويل أونصة إلى جرام
-let gram24 = ounce / 31.1035;
+let goldOunceDollar = data[0].price;
 
 
-// تحويل دولار لجنيه (تقدر تغيره بسعر الدولار عندك)
+// سعر الدولار مؤقتًا
 let dollar = 50;
 
-let gold24 = gram24 * dollar;
 
-let gold21 = gold24 * 0.875;
+// سعر جرام الذهب عيار 24
+let g24 = (goldOunceDollar / 31.1035) * dollar;
 
-let gold18 = gold24 * 0.75;
+let g21 = g24 * 0.875;
+let g18 = g24 * 0.75;
+let g14 = g24 * 0.583;
+
+
+// جنيه الذهب 8 جرام عيار 21
+let coin = g21 * 8;
+let half = coin / 2;
+
+
+// أونصة بالجنيه
+let ounce = goldOunceDollar * dollar;
 
 
 document.getElementById("g24").innerHTML =
-gold24.toFixed(0)+" جنيه";
+g24.toFixed(0)+" جنيه";
 
 document.getElementById("g21").innerHTML =
-gold21.toFixed(0)+" جنيه";
+g21.toFixed(0)+" جنيه";
 
 document.getElementById("g18").innerHTML =
-gold18.toFixed(0)+" جنيه";
+g18.toFixed(0)+" جنيه";
+
+document.getElementById("g14").innerHTML =
+g14.toFixed(0)+" جنيه";
+
+document.getElementById("coin").innerHTML =
+coin.toFixed(0)+" جنيه";
+
+document.getElementById("half").innerHTML =
+half.toFixed(0)+" جنيه";
+
+document.getElementById("ounce").innerHTML =
+ounce.toFixed(0)+" جنيه";
 
 
-document.getElementById("update").innerHTML =
-"آخر تحديث: "+new Date().toLocaleString("ar-EG");
+document.getElementById("buy").innerHTML =
+(g21-50).toFixed(0)+" جنيه";
+
+document.getElementById("sell").innerHTML =
+(g21+50).toFixed(0)+" جنيه";
+
+
+document.getElementById("time").innerHTML =
+"آخر تحديث: "+
+new Date().toLocaleString("ar-EG");
+
 
 }
 
-catch(e){
+catch(error){
 
-document.getElementById("g24").innerHTML="تعذر التحميل";
+document.getElementById("g24").innerHTML =
+"تعذر التحميل";
 
 }
 
 }
 
-goldPrice();
 
-setInterval(goldPrice,60000);
+updateGold();
+
+setInterval(updateGold,60000);
+
 
 </script>
 
