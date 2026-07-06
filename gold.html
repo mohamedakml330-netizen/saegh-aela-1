@@ -4,70 +4,66 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>دهب</title>
+<title>تطبيق دهب</title>
 
 <style>
 body{
-margin:0;
-background:#0d0d0d;
-color:white;
-font-family:Tahoma,Arial;
+    margin:0;
+    background:#111;
+    color:white;
+    font-family:Tahoma,Arial;
 }
 
 .header{
-background:linear-gradient(45deg,#b8860b,#ffd700);
-color:#111;
-padding:25px;
-text-align:center;
-font-size:30px;
-font-weight:bold;
+    background:#d4af37;
+    color:#000;
+    text-align:center;
+    padding:20px;
+    font-size:28px;
+    font-weight:bold;
 }
 
 .container{
-padding:15px;
+    padding:15px;
 }
 
 .card{
-background:#1c1c1c;
-border:1px solid #8f6b00;
-border-radius:18px;
-padding:15px;
-margin:15px 0;
+    background:#222;
+    border-radius:15px;
+    padding:15px;
+    margin-bottom:15px;
+    border:1px solid #b8860b;
 }
 
-.title{
-color:#ffd700;
-font-size:22px;
-margin-bottom:10px;
+.name{
+    color:#ffd700;
+    font-size:23px;
+    font-weight:bold;
+    margin-bottom:15px;
 }
 
-.price{
-font-size:24px;
-font-weight:bold;
+.line{
+    display:flex;
+    justify-content:space-between;
+    font-size:20px;
+    padding:8px;
 }
 
 .buy{
-color:#00e676;
+    color:#ff3333;
 }
 
 .sell{
-color:#ff5252;
-}
-
-.row{
-display:flex;
-justify-content:space-between;
-padding:8px;
-border-bottom:1px solid #333;
+    color:#00e676;
 }
 
 .update{
-text-align:center;
-color:#aaa;
-font-size:14px;
+    text-align:center;
+    color:#aaa;
+    font-size:14px;
 }
-</style>
 
+</style>
 </head>
 
 <body>
@@ -79,60 +75,51 @@ font-size:14px;
 <div class="container">
 
 <div class="card">
-<div class="title">أسعار الذهب</div>
-
-<div class="row">
-<span>عيار 24</span>
-<span id="g24">--</span>
-</div>
-
-<div class="row">
-<span>عيار 21</span>
-<span id="g21">--</span>
-</div>
-
-<div class="row">
-<span>عيار 18</span>
-<span id="g18">--</span>
-</div>
-
-<div class="row">
-<span>عيار 14</span>
-<span id="g14">--</span>
-</div>
-
+<div class="name">عيار 24</div>
+<div class="line buy">شراء: <span id="b24">--</span></div>
+<div class="line sell">بيع: <span id="s24">--</span></div>
 </div>
 
 
 <div class="card">
-<div class="title">الذهب الخام</div>
-
-<div class="row">
-<span>جنيه ذهب</span>
-<span id="coin">--</span>
-</div>
-
-<div class="row">
-<span>نصف جنيه</span>
-<span id="half">--</span>
-</div>
-
-<div class="row">
-<span>أونصة</span>
-<span id="ounce">--</span>
-</div>
-
+<div class="name">عيار 21</div>
+<div class="line buy">شراء: <span id="b21">--</span></div>
+<div class="line sell">بيع: <span id="s21">--</span></div>
 </div>
 
 
 <div class="card">
+<div class="name">عيار 18</div>
+<div class="line buy">شراء: <span id="b18">--</span></div>
+<div class="line sell">بيع: <span id="s18">--</span></div>
+</div>
 
-<div class="title">السوق</div>
 
-<p class="buy">شراء: <span id="buy">--</span></p>
+<div class="card">
+<div class="name">عيار 14</div>
+<div class="line buy">شراء: <span id="b14">--</span></div>
+<div class="line sell">بيع: <span id="s14">--</span></div>
+</div>
 
-<p class="sell">بيع: <span id="sell">--</span></p>
 
+<div class="card">
+<div class="name">جنيه ذهب</div>
+<div class="line buy">شراء: <span id="coinB">--</span></div>
+<div class="line sell">بيع: <span id="coinS">--</span></div>
+</div>
+
+
+<div class="card">
+<div class="name">نصف جنيه ذهب</div>
+<div class="line buy">شراء: <span id="halfB">--</span></div>
+<div class="line sell">بيع: <span id="halfS">--</span></div>
+</div>
+
+
+<div class="card">
+<div class="name">أونصة ذهب</div>
+<div class="line buy">شراء: <span id="ounceB">--</span></div>
+<div class="line sell">بيع: <span id="ounceS">--</span></div>
 </div>
 
 
@@ -145,50 +132,58 @@ font-size:14px;
 
 <script>
 
-async function gold(){
+function updateGold(){
 
-try{
+// سعر تجريبي للتأكد من الشكل
+let g24 = 5000;
 
-let r=await fetch(https://api.metals.live/v1/spot/gold);
-let d=await r.json();
-
-let ounceDollar=d[0].price;
-
-let dollar=50;
-
-let g24=(ounceDollar/31.1035)*dollar;
-
-let g21=g24*0.875;
-let g18=g24*0.75;
-let g14=g24*0.583;
+let g21 = g24 * .875;
+let g18 = g24 * .75;
+let g14 = g24 * .583;
 
 
-document.getElementById("g24").innerHTML=g24.toFixed(0)+" جنيه";
-document.getElementById("g21").innerHTML=g21.toFixed(0)+" جنيه";
-document.getElementById("g18").innerHTML=g18.toFixed(0)+" جنيه";
-document.getElementById("g14").innerHTML=g14.toFixed(0)+" جنيه";
+function set(id,buy,sell){
+document.getElementById(id+"B").innerHTML=
+buy.toFixed(0)+" جنيه";
 
-document.getElementById("coin").innerHTML=(g21*8).toFixed(0)+" جنيه";
-document.getElementById("half").innerHTML=(g21*4).toFixed(0)+" جنيه";
-document.getElementById("ounce").innerHTML=(ounceDollar*dollar).toFixed(0)+" جنيه";
+document.getElementById(id+"S").innerHTML=
+sell.toFixed(0)+" جنيه";
+}
 
-document.getElementById("buy").innerHTML=(g21-50).toFixed(0)+" جنيه";
-document.getElementById("sell").innerHTML=(g21+50).toFixed(0)+" جنيه";
+
+set("24",g24-50,g24+50);
+set("21",g21-50,g21+50);
+set("18",g18-50,g18+50);
+set("14",g14-50,g14+50);
+
+
+document.getElementById("coinB").innerHTML=
+((g21*8)-100).toFixed(0)+" جنيه";
+
+document.getElementById("coinS").innerHTML=
+((g21*8)+100).toFixed(0)+" جنيه";
+
+
+document.getElementById("halfB").innerHTML=
+((g21*4)-50).toFixed(0)+" جنيه";
+
+document.getElementById("halfS").innerHTML=
+((g21*4)+50).toFixed(0)+" جنيه";
+
+
+document.getElementById("ounceB").innerHTML=
+(g24*31.1035-100).toFixed(0)+" جنيه";
+
+document.getElementById("ounceS").innerHTML=
+(g24*31.1035+100).toFixed(0)+" جنيه";
+
 
 document.getElementById("time").innerHTML=
 "آخر تحديث: "+new Date().toLocaleString("ar-EG");
 
-}catch(e){
-
-document.getElementById("time").innerHTML="تعذر تحميل السعر";
-
 }
 
-}
-
-gold();
-
-setInterval(gold,60000);
+updateGold();
 
 </script>
 
