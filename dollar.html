@@ -47,15 +47,16 @@ body{
 <div class="card">
 <h2>الدولار الأمريكي</h2>
 
-<div id="price">جاري التحميل...</div>
+<div id="price">50.00 جنيه</div>
 
 <button onclick="getPrice()">تحديث</button>
+
 </div>
 
 <script>
-<script>
-document.getElementById("price").innerText = "50.00 جنيه";
-</script>
+function getPrice(){
+    document.getElementById("price").innerText = "50.00 جنيه";
+}
 </script>
 
 </body>
