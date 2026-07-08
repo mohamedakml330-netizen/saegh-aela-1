@@ -8,94 +8,127 @@
 
 <style>
 
-body{
-margin:0;
-background:#050505;
-color:white;
+*{
+box-sizing:border-box;
 font-family:Tahoma,Arial,sans-serif;
 }
 
+body{
+margin:0;
+background:#070707;
+color:white;
+}
+
+/* الهيدر */
 .header{
-background:linear-gradient(135deg,#8b6508,#ffd700,#8b6508);
-color:#111;
-text-align:center;
+background:linear-gradient(135deg,#111,#1b1605);
 padding:25px;
-font-size:28px;
-font-weight:bold;
-}
-
-.subtitle{
 text-align:center;
-padding:15px;
-color:#ddd;
-font-size:16px;
+border-bottom:2px solid #d4af37;
 }
 
-.subtitle span{
+.header h1{
+margin:0;
+font-size:32px;
 color:#ffd700;
 }
 
-.update{
-text-align:center;
-color:#d4af37;
-margin-bottom:15px;
+.header p{
+margin:8px 0 0;
+color:#ccc;
 }
 
+
+/* الكلام فوق */
+.subtitle{
+margin:15px;
+padding:18px;
+background:#151515;
+border-radius:18px;
+text-align:center;
+border:1px solid #4b3808;
+line-height:2;
+font-size:17px;
+}
+
+.subtitle span{
+display:block;
+color:#ffd700;
+font-size:15px;
+}
+
+
+/* التحديث */
+.update{
+margin:15px;
+background:#111;
+padding:12px;
+border-radius:12px;
+text-align:center;
+color:#ffd700;
+}
+
+
+/* الجدول */
 .container{
 padding:15px;
 }
 
+
 .table-head{
-display:flex;
-justify-content:space-between;
-background:#151515;
-border:1px solid #b8860b;
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+background:#d4af37;
+color:#111;
 padding:15px;
-border-radius:15px;
-color:#ffd700;
+border-radius:15px 15px 0 0;
 font-weight:bold;
-}
-
-.card{
-background:linear-gradient(145deg,#181818,#090909);
-border:1px solid #b8860b;
-border-radius:18px;
-padding:18px;
-margin:15px 0;
-box-shadow:0 0 15px #000;
-}
-
-.gold-name{
-font-size:21px;
-color:#ffd700;
-font-weight:bold;
-margin-bottom:15px;
-}
-
-.row{
-display:flex;
-justify-content:space-around;
 text-align:center;
 }
 
-.box{
-width:45%;
-background:#111;
-border-radius:12px;
-padding:12px;
+
+.card{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+align-items:center;
+background:#161616;
+margin-top:10px;
+padding:18px;
+border-radius:15px;
+border:1px solid #332600;
+box-shadow:0 5px 15px #000;
 }
+
+
+.gold-name{
+color:#ffd700;
+font-size:19px;
+font-weight:bold;
+}
+
+
+.row{
+display:contents;
+}
+
+
+.box{
+text-align:center;
+}
+
 
 .label{
-color:#aaa;
-font-size:14px;
+font-size:13px;
+color:#999;
 }
 
+
 .price{
-font-size:22px;
+font-size:21px;
 font-weight:bold;
-margin-top:5px;
 color:white;
 }
+
 
 .footer{
 text-align:center;
@@ -103,24 +136,22 @@ color:#777;
 padding:25px;
 }
 
+
 </style>
 
 </head>
-
 
 <body>
 
 
 <div class="header">
-💎 صائغ العيله
-<br>
-أسعار الذهب
+<h1>💎 صائغ العيله</h1>
+<p>أسعار الذهب</p>
 </div>
 
 
 <div class="subtitle">
-متوسط أسعار سوق الذهب الاسترشادي المصري
-<br>
+متوسط أسعار الذهب الاسترشادي المصري
 <span>
 يخصم محل التجزئة عمولة عند شراء الكسر بداية من 1%
 </span>
@@ -136,87 +167,169 @@ padding:25px;
 
 
 <div class="table-head">
-<span>العيار / الوحدة</span>
-<span>شراء &nbsp;&nbsp; بيع</span>
+<div>العيار</div>
+<div>شراء</div>
+<div>بيع</div>
 </div>
 
 
 <!-- عيار 24 -->
 <div class="card">
-<div class="gold-name">🥇 ذهب عيار 24</div>
+<div class="gold-name">🥇 عيار 24</div>
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price" id="g24buy">تحميل...</div></div>
-<div class="box"><div class="label">بيع</div><div class="price" id="g24sell">تحميل...</div></div>
+
+<div class="box">
+<div class="label">شراء</div>
+<div class="price" id="g24buy">تحميل...</div>
+</div>
+
+<div class="box">
+<div class="label">بيع</div>
+<div class="price" id="g24sell">تحميل...</div>
+</div>
+
 </div>
 </div>
 
 
 <!-- عيار 21 -->
 <div class="card">
-<div class="gold-name">🥇 ذهب عيار 21</div>
+<div class="gold-name">🥇 عيار 21</div>
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price" id="g21buy">تحميل...</div></div>
-<div class="box"><div class="label">بيع</div><div class="price" id="g21sell">تحميل...</div></div>
-</div>
+
+<div class="box">
+<div class="label">شراء</div>
+<div class="price" id="g21buy">تحميل...</div>
 </div>
 
+<div class="box">
+<div class="label">بيع</div>
+<div class="price" id="g21sell">تحميل...</div>
+</div>
 
-<!-- عيار 18 -->
+</div>
+</div> 
+  <!-- عيار 18 -->
 <div class="card">
-<div class="gold-name">🥇 ذهب عيار 18</div>
+<div class="gold-name">🥇 عيار 18</div>
+
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price" id="g18buy">تحميل...</div></div>
-<div class="box"><div class="label">بيع</div><div class="price" id="g18sell">تحميل...</div></div>
+
+<div class="box">
+<div class="label">شراء</div>
+<div class="price" id="g18buy">تحميل...</div>
+</div>
+
+<div class="box">
+<div class="label">بيع</div>
+<div class="price" id="g18sell">تحميل...</div>
+</div>
+
 </div>
 </div>
+
 
 
 <!-- عيار 14 -->
 <div class="card">
-<div class="gold-name">🥇 ذهب عيار 14</div>
+<div class="gold-name">🥇 عيار 14</div>
+
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price" id="g14buy">تحميل...</div></div>
-<div class="box"><div class="label">بيع</div><div class="price" id="g14sell">تحميل...</div></div>
+
+<div class="box">
+<div class="label">شراء</div>
+<div class="price" id="g14buy">تحميل...</div>
+</div>
+
+<div class="box">
+<div class="label">بيع</div>
+<div class="price" id="g14sell">تحميل...</div>
+</div>
+
 </div>
 </div>
+
 
 
 <!-- جنيه ذهب -->
 <div class="card">
 <div class="gold-name">🪙 جنيه ذهب</div>
+
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price" id="coinbuy">تحميل...</div></div>
-<div class="box"><div class="label">بيع</div><div class="price" id="coinsell">تحميل...</div></div>
+
+<div class="box">
+<div class="label">شراء</div>
+<div class="price" id="coinbuy">تحميل...</div>
+</div>
+
+<div class="box">
+<div class="label">بيع</div>
+<div class="price" id="coinsell">تحميل...</div>
+</div>
+
 </div>
 </div>
+
 
 
 <!-- نصف جنيه -->
 <div class="card">
 <div class="gold-name">🪙 نصف جنيه ذهب</div>
+
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price" id="halfbuy">تحميل...</div></div>
-<div class="box"><div class="label">بيع</div><div class="price" id="halfsell">تحميل...</div></div>
+
+<div class="box">
+<div class="label">شراء</div>
+<div class="price" id="halfbuy">تحميل...</div>
+</div>
+
+<div class="box">
+<div class="label">بيع</div>
+<div class="price" id="halfsell">تحميل...</div>
+</div>
+
 </div>
 </div>
+
 
 
 <!-- ربع جنيه -->
 <div class="card">
 <div class="gold-name">🪙 ربع جنيه ذهب</div>
+
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price" id="quarterbuy">تحميل...</div></div>
-<div class="box"><div class="label">بيع</div><div class="price" id="quartersell">تحميل...</div></div>
+
+<div class="box">
+<div class="label">شراء</div>
+<div class="price" id="quarterbuy">تحميل...</div>
+</div>
+
+<div class="box">
+<div class="label">بيع</div>
+<div class="price" id="quartersell">تحميل...</div>
+</div>
+
 </div>
 </div>
 
 
-<!-- أونصة -->
+
+<!-- الأونصة -->
 <div class="card">
 <div class="gold-name">🌕 الأونصة الذهبية</div>
+
 <div class="row">
-<div class="box"><div class="label">شراء</div><div class="price" id="ouncebuy">تحميل...</div></div>
-<div class="box"><div class="label">بيع</div><div class="price" id="ouncesell">تحميل...</div></div>
+
+<div class="box">
+<div class="label">شراء</div>
+<div class="price" id="ouncebuy">تحميل...</div>
+</div>
+
+<div class="box">
+<div class="label">بيع</div>
+<div class="price" id="ouncesell">تحميل...</div>
+</div>
+
 </div>
 </div>
 
@@ -230,6 +343,7 @@ padding:25px;
 
 
 <script src="script.js"></script>
+
 
 </body>
 </html>
