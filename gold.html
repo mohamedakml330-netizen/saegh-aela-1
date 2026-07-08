@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>صائغ العيله - أسعار الذهب</title>
+<title>صائغ العيلة - أسعار الذهب</title>
 
 <style>
 
@@ -19,69 +21,74 @@ background:#070707;
 color:white;
 }
 
+
 /* الهيدر */
+
 .header{
-background:linear-gradient(135deg,#111,#1b1605);
-padding:25px;
+background:linear-gradient(135deg,#111,#3a2a05);
+padding:22px;
 text-align:center;
 border-bottom:2px solid #d4af37;
 }
 
 .header h1{
 margin:0;
-font-size:32px;
 color:#ffd700;
+font-size:30px;
 }
 
 .header p{
 margin:8px 0 0;
-color:#ccc;
+color:#ddd;
 }
 
 
-/* الكلام فوق */
+/* الجمل */
+
 .subtitle{
 margin:15px;
-padding:18px;
+padding:15px;
 background:#151515;
-border-radius:18px;
+border:1px solid #8b6508;
+border-radius:15px;
 text-align:center;
-border:1px solid #4b3808;
 line-height:2;
-font-size:17px;
+font-size:16px;
 }
 
 .subtitle span{
 display:block;
 color:#ffd700;
-font-size:15px;
 }
 
 
 /* التحديث */
+
 .update{
-margin:15px;
-background:#111;
+margin:10px 15px;
 padding:12px;
-border-radius:12px;
+background:#111;
+border-radius:10px;
 text-align:center;
 color:#ffd700;
 }
 
 
+
 /* الجدول */
+
 .container{
-padding:15px;
+padding:10px;
 }
 
 
 .table-head{
 display:grid;
-grid-template-columns:1fr 1fr 1fr;
+grid-template-columns:1.2fr 1fr 1fr;
 background:#d4af37;
 color:#111;
-padding:15px;
-border-radius:15px 15px 0 0;
+padding:12px;
+border-radius:12px 12px 0 0;
 font-weight:bold;
 text-align:center;
 }
@@ -89,51 +96,34 @@ text-align:center;
 
 .card{
 display:grid;
-grid-template-columns:1fr 1fr 1fr;
+grid-template-columns:1.2fr 1fr 1fr;
+background:#151515;
+border:1px solid #5c4305;
+padding:12px;
+margin:5px 0;
+border-radius:10px;
 align-items:center;
-background:#161616;
-margin-top:10px;
-padding:18px;
-border-radius:15px;
-border:1px solid #332600;
-box-shadow:0 5px 15px #000;
 }
 
 
 .gold-name{
 color:#ffd700;
-font-size:19px;
+font-size:16px;
 font-weight:bold;
-}
-
-
-.row{
-display:contents;
-}
-
-
-.box{
-text-align:center;
-}
-
-
-.label{
-font-size:13px;
-color:#999;
 }
 
 
 .price{
-font-size:21px;
+text-align:center;
+font-size:17px;
 font-weight:bold;
-color:white;
 }
 
 
 .footer{
 text-align:center;
 color:#777;
-padding:25px;
+padding:20px;
 }
 
 
@@ -141,25 +131,34 @@ padding:25px;
 
 </head>
 
+
 <body>
 
 
 <div class="header">
-<h1>💎 صائغ العيله</h1>
+
+<h1>💎 صائغ العيلة</h1>
+
 <p>أسعار الذهب</p>
+
 </div>
 
 
 <div class="subtitle">
-متوسط أسعار الذهب الاسترشادي المصري
+
+متوسط أسعار سوق الذهب الاسترشادي المصري
+
 <span>
-يخصم محل التجزئة عمولة عند شراء الكسر بداية من 1%
+يخصم المحل تجزئة عمولة عند شراء الكسر بداية من 1%
 </span>
+
 </div>
 
 
 <div class="update">
+
 🔄 آخر تحديث: تلقائي
+
 </div>
 
 
@@ -167,178 +166,102 @@ padding:25px;
 
 
 <div class="table-head">
+
 <div>العيار</div>
-<div>شراء</div>
-<div>بيع</div>
+
+<div>سعر الشراء</div>
+
+<div>سعر البيع</div>
+
 </div>
-
-
 <!-- عيار 24 -->
 <div class="card">
+
 <div class="gold-name">🥇 عيار 24</div>
-<div class="row">
 
-<div class="box">
-<div class="label">شراء</div>
 <div class="price" id="g24buy">تحميل...</div>
-</div>
 
-<div class="box">
-<div class="label">بيع</div>
 <div class="price" id="g24sell">تحميل...</div>
-</div>
 
-</div>
 </div>
 
 
 <!-- عيار 21 -->
 <div class="card">
+
 <div class="gold-name">🥇 عيار 21</div>
-<div class="row">
 
-<div class="box">
-<div class="label">شراء</div>
 <div class="price" id="g21buy">تحميل...</div>
-</div>
 
-<div class="box">
-<div class="label">بيع</div>
 <div class="price" id="g21sell">تحميل...</div>
-</div>
 
 </div>
-</div> 
-  <!-- عيار 18 -->
+
+
+<!-- عيار 18 -->
 <div class="card">
+
 <div class="gold-name">🥇 عيار 18</div>
 
-<div class="row">
-
-<div class="box">
-<div class="label">شراء</div>
 <div class="price" id="g18buy">تحميل...</div>
-</div>
 
-<div class="box">
-<div class="label">بيع</div>
 <div class="price" id="g18sell">تحميل...</div>
-</div>
 
 </div>
-</div>
-
 
 
 <!-- عيار 14 -->
 <div class="card">
+
 <div class="gold-name">🥇 عيار 14</div>
 
-<div class="row">
-
-<div class="box">
-<div class="label">شراء</div>
 <div class="price" id="g14buy">تحميل...</div>
-</div>
 
-<div class="box">
-<div class="label">بيع</div>
 <div class="price" id="g14sell">تحميل...</div>
-</div>
 
 </div>
-</div>
 
 
-
-<!-- جنيه ذهب -->
+<!-- جنيه الذهب -->
 <div class="card">
-<div class="gold-name">🪙 جنيه ذهب</div>
 
-<div class="row">
+<div class="gold-name">🪙 جنيه الذهب</div>
 
-<div class="box">
-<div class="label">شراء</div>
 <div class="price" id="coinbuy">تحميل...</div>
-</div>
 
-<div class="box">
-<div class="label">بيع</div>
 <div class="price" id="coinsell">تحميل...</div>
-</div>
 
 </div>
-</div>
 
 
-
-<!-- نصف جنيه -->
+<!-- الأونصة الذهبية -->
 <div class="card">
-<div class="gold-name">🪙 نصف جنيه ذهب</div>
 
-<div class="row">
-
-<div class="box">
-<div class="label">شراء</div>
-<div class="price" id="halfbuy">تحميل...</div>
-</div>
-
-<div class="box">
-<div class="label">بيع</div>
-<div class="price" id="halfsell">تحميل...</div>
-</div>
-
-</div>
-</div>
-
-
-
-<!-- ربع جنيه -->
-<div class="card">
-<div class="gold-name">🪙 ربع جنيه ذهب</div>
-
-<div class="row">
-
-<div class="box">
-<div class="label">شراء</div>
-<div class="price" id="quarterbuy">تحميل...</div>
-</div>
-
-<div class="box">
-<div class="label">بيع</div>
-<div class="price" id="quartersell">تحميل...</div>
-</div>
-
-</div>
-</div>
-
-
-
-<!-- الأونصة -->
-<div class="card">
 <div class="gold-name">🌕 الأونصة الذهبية</div>
 
-<div class="row">
-
-<div class="box">
-<div class="label">شراء</div>
 <div class="price" id="ouncebuy">تحميل...</div>
-</div>
 
-<div class="box">
-<div class="label">بيع</div>
 <div class="price" id="ouncesell">تحميل...</div>
-</div>
 
 </div>
-</div>
 
+<!-- كيلو الذهب -->
+<div class="card">
 
+<div class="gold-name">🧱 كيلو الذهب</div>
+
+<div class="price" id="kilobuy">تحميل...</div>
+
+<div class="price" id="kilosell">تحميل...</div>
+
+</div> 
 </div>
 
 
 <div class="footer">
-© 2026 صائغ العيله
+
+© 2026 صائغ العيلة BY Akml Mohamed
+
 </div>
 
 
@@ -346,4 +269,5 @@ padding:25px;
 
 
 </body>
+
 </html>
