@@ -1,266 +1,244 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>صائغ العيلة - أسعار الذهب</title>
+<title>صائغ العيله - أسعار الذهب</title>
 
 <style>
 
 *{
+margin:0;
+padding:0;
 box-sizing:border-box;
-font-family:Tahoma,Arial,sans-serif;
+font-family:Cairo,Tahoma,Arial,sans-serif;
 }
 
 body{
-margin:0;
-background:#070707;
-color:white;
+background:#0b0b0b;
+color:#fff;
 }
 
-
-/* الهيدر */
-
 .header{
-background:linear-gradient(135deg,#111,#3a2a05);
+background:#111;
 padding:22px;
 text-align:center;
-border-bottom:2px solid #d4af37;
+border-bottom:3px solid #d4af37;
 }
 
 .header h1{
-margin:0;
-color:#ffd700;
-font-size:30px;
+font-size:32px;
+color:#FFD700;
+margin-bottom:8px;
 }
 
 .header p{
-margin:8px 0 0;
+font-size:15px;
 color:#ddd;
 }
 
-
-/* الجمل */
-
-.subtitle{
+.info{
 margin:15px;
-padding:15px;
-background:#151515;
-border:1px solid #8b6508;
+background:#181818;
 border-radius:15px;
+padding:18px;
 text-align:center;
 line-height:2;
-font-size:16px;
+border:1px solid #2d2d2d;
 }
 
-.subtitle span{
-display:block;
-color:#ffd700;
+.info h3{
+color:#FFD700;
+font-size:20px;
+margin-bottom:8px;
 }
 
-
-/* التحديث */
+.info span{
+color:#bfbfbf;
+font-size:15px;
+}
 
 .update{
-margin:10px 15px;
+margin:15px;
+background:#151515;
 padding:12px;
-background:#111;
-border-radius:10px;
+border-radius:12px;
 text-align:center;
-color:#ffd700;
+color:#FFD700;
+font-weight:bold;
 }
-
-
-
-/* الجدول */
 
 .container{
-padding:10px;
+padding:15px;
 }
-
 
 .table-head{
 display:grid;
-grid-template-columns:1.2fr 1fr 1fr;
+grid-template-columns:1fr 1fr 1fr;
 background:#d4af37;
 color:#111;
-padding:12px;
-border-radius:12px 12px 0 0;
 font-weight:bold;
+padding:16px;
+border-radius:15px 15px 0 0;
 text-align:center;
 }
-
 
 .card{
 display:grid;
-grid-template-columns:1.2fr 1fr 1fr;
-background:#151515;
-border:1px solid #5c4305;
-padding:12px;
-margin:5px 0;
-border-radius:10px;
+grid-template-columns:1fr 1fr 1fr;
 align-items:center;
+background:#1a1a1a;
+padding:18px;
+border-bottom:1px solid #2c2c2c;
 }
-
 
 .gold-name{
-color:#ffd700;
-font-size:16px;
+font-size:18px;
 font-weight:bold;
+color:#FFD700;
+text-align:right;
 }
-
 
 .price{
 text-align:center;
-font-size:17px;
+font-size:20px;
 font-weight:bold;
 }
 
-
-.footer{
-text-align:center;
-color:#777;
-padding:20px;
+.cards{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+margin-top:18px;
 }
 
+.small-card{
+background:#181818;
+border-radius:14px;
+padding:18px;
+text-align:center;
+border:1px solid #2d2d2d;
+}
+
+.small-card h4{
+color:#FFD700;
+margin-bottom:10px;
+}
+
+.ads{
+margin-top:18px;
+background:#181818;
+border:2px dashed #FFD700;
+border-radius:15px;
+padding:20px;
+text-align:center;
+}
+
+.ads h3{
+color:#FFD700;
+margin-bottom:8px;
+}
+
+.ads p{
+font-size:20px;
+font-weight:bold;
+}
+
+.footer{
+padding:25px;
+text-align:center;
+color:#888;
+}
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <div class="header">
-
-<h1>💎 صائغ العيلة</h1>
-
+<h1>💎 صائغ العيله</h1>
 <p>أسعار الذهب</p>
-
 </div>
 
-
-<div class="subtitle">
-
-متوسط أسعار سوق الذهب الاسترشادي المصري
-
-<span>
-يخصم المحل تجزئة عمولة عند شراء الكسر بداية من 1%
-</span>
-
+<div class="info">
+<h3>متوسط أسعار الذهب الاسترشادي المصري</h3>
+<span>يخصم محل التجزئة عمولة عند شراء الكسر بداية من 1%</span>
 </div>
-
 
 <div class="update">
-
-🔄 آخر تحديث: تلقائي
-
+آخر تحديث : تلقائي
 </div>
-
 
 <div class="container">
 
-
 <div class="table-head">
-
 <div>العيار</div>
-
-<div>سعر الشراء</div>
-
-<div>سعر البيع</div>
-
+<div>شراء</div>
+<div>بيع</div>
 </div>
 <!-- عيار 24 -->
 <div class="card">
-
-
-  
-<!-- عيار 21 -->
-<div class="card">
-
-<div class="gold-name">🥇 عيار 21</div>
-
-<div class="price" id="g21buy">تحميل...</div>
-
-<div class="price" id="g21sell">تحميل...</div>
-
+<div class="gold-name">ذهب عيار 24</div>
+<div class="price" id="g24buy">تحميل...</div>
+<div class="price" id="g24sell">تحميل...</div>
 </div>
 
+<!-- عيار 21 -->
+<div class="card">
+<div class="gold-name">ذهب عيار 21</div>
+<div class="price" id="g21buy">تحميل...</div>
+<div class="price" id="g21sell">تحميل...</div>
+</div>
 
 <!-- عيار 18 -->
 <div class="card">
-
-<div class="gold-name">🥇 عيار 18</div>
-
+<div class="gold-name">ذهب عيار 18</div>
 <div class="price" id="g18buy">تحميل...</div>
-
 <div class="price" id="g18sell">تحميل...</div>
-
 </div>
-
 
 <!-- عيار 14 -->
 <div class="card">
-
-<div class="gold-name">🥇 عيار 14</div>
-
+<div class="gold-name">ذهب عيار 14</div>
 <div class="price" id="g14buy">تحميل...</div>
-
 <div class="price" id="g14sell">تحميل...</div>
-
 </div>
 
+<div class="cards">
 
-<!-- جنيه الذهب -->
-<div class="card">
-
-<div class="gold-name">🪙 جنيه الذهب</div>
-
-<div class="price" id="coinbuy">تحميل...</div>
-
-<div class="price" id="coinsell">تحميل...</div>
-
+<div class="small-card">
+<h4>جنيه الذهب</h4>
+<div id="coinbuy">تحميل...</div>
 </div>
 
-
-<!-- الأونصة الذهبية -->
-<div class="card">
-
-<div class="gold-name">🌕 الأونصة الذهبية</div>
-
-<div class="price" id="ouncebuy">تحميل...</div>
-
-<div class="price" id="ouncesell">تحميل...</div>
-
+<div class="small-card">
+<h4>الأونصة</h4>
+<div id="ouncebuy">تحميل...</div>
 </div>
 
-<!-- كيلو الذهب -->
-<div class="card">
-
-<div class="gold-name">🥇 كيلو ذهب عيار 24</div>
-
-<div class="price" id="kilobuy">تحميل...</div>
-
-<div class="price" id="kilosell">تحميل...</div>
-
-</div> 
+<div class="small-card">
+<h4>كيلو ذهب عيار 24</h4>
+<div id="kilobuy">تحميل...</div>
 </div>
 
+<div class="small-card">
+<h4>الشاشة</h4>
+<div id="screenprice">تحميل...</div>
+</div>
+
+</div>
+<div class="ads">
+<h3>📢 للإعلان</h3>
+<p>الاتصال بـ 01125325171</p>
+</div>
+
+</div>
 
 <div class="footer">
-
-© 2026 صائغ العيلة BY Akml Mohamed
-
+ BY Akml Mohamed © 2026  صائغ العيله
 </div>
-
 
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
