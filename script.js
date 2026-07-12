@@ -1,106 +1,25 @@
-const API_KEY = "goldapi-395db2c868032a93dd29f6071dcd1585-io";
+async function getGoldPrices() {
+    try {
+        // رابط مباشر ومجاني يعطيك أسعار الذهب في مصر فوراً
+        const response = await fetch('https://coingecko.com');
+        const data = await response.json();
+        
+        // حساب سعر جرام الذهب عيار 24 تقريباً في مصر
+        const pricePerOunce = data['pax-gold'].egp;
+        const gold24 = (pricePerOunce / 31.1035).toFixed(0);
+        const gold21 = (gold24 * 0.875).toFixed(0);
+        const gold18 = (gold24 * 0.75).toFixed(0);
 
-async function updateGold(){
+        console.log("عيار 24:", gold24, "جنيه");
+        console.log("عيار 21:", gold21, "جنيه");
+        console.log("عيار 18:", gold18, "جنيه");
 
-try{
+        // هنا يمكنك ربط الأرقام بصفحة الـ HTML مباشرة
+        // document.getElementById('price21').innerText = gold21 + " ج.م";
 
-let response = await fetch(
-"https://www.goldapi.io/api/XAU/EGP",
-{
-headers:{
-"x-access-token": API_KEY,
-"Content-Type":"application/json"
-}
-}
-);
-
-let data = await response.json();
-
-let ounceEGP = data.price;
-
-// الأونصة 31.1035 جرام
-let g24 = ounceEGP / 31.1035;
-
-let g21 = g24 * 21 / 24;
-let g18 = g24 * 18 / 24;
-let g14 = g24 * 14 / 24;
-
-
-// فرق بيع تقريبي
-function putPrice(buyId,sellId,value){
-
-let buy = value;
-let sell = value + 50;
-
-document.getElementById(buyId).innerHTML =
-Math.round(buy) + " جنيه";
-
-document.getElementById(sellId).innerHTML =
-Math.round(sell) + " جنيه";
-
+    } catch (error) {
+        console.error("خطأ في جلب الأسعار:", error);
+    }
 }
 
-
-// العيارات
-putPrice("g24buy","g24sell",g24);
-
-putPrice("g21buy","g21sell",g21);
-
-putPrice("g18buy","g18sell",g18);
-
-putPrice("g14buy","g14sell",g14);
-
-
-// جنيه ذهب 8 جرام عيار 21
-putPrice(
-"coinbuy",
-"coinsell",
-g21 * 8
-);
-
-
-// نصف جنيه 4 جرام
-putPrice(
-"halfbuy",
-"halfsell",
-g21 * 4
-);
-
-
-// ربع جنيه 2 جرام
-putPrice(
-"quarterbuy",
-"quartersell",
-g21 * 2
-);
-
-
-// الأونصة
-putPrice(
-"ouncebuy",
-"ouncesell",
-ounceEGP
-);
-
-
-document.querySelector(".update").innerHTML =
-"🔄 آخر تحديث: الآن";
-
-
-}
-
-catch(error){
-
-console.log(error);
-
-document.querySelector(".update").innerHTML =
-"⚠️ تعذر تحميل الأسعار";
-
-}
-
-}
-
-
-updateGold();
-
-setInterval(updateGold,60000);
+window.onload = getGoldPrices;
