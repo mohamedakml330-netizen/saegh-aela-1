@@ -1,11 +1,9 @@
 const API_KEY = "goldapi-395db2c868032a93dd29f6071dcd1585-io";
 
 async function updateGold() {
-
     try {
 
         const response = await fetch("https://www.goldapi.io/api/XAU/EGP", {
-            method: "GET",
             headers: {
                 "x-access-token": API_KEY,
                 "Content-Type": "application/json"
@@ -19,6 +17,7 @@ async function updateGold() {
         const data = await response.json();
 
         const ouncePrice = data.price;
+
         const gram24 = ouncePrice / 31.1035;
         const gram21 = gram24 * 21 / 24;
         const gram18 = gram24 * 18 / 24;
@@ -29,10 +28,10 @@ async function updateGold() {
             document.getElementById(sellId).textContent = Math.round(price + 50) + " ج.م";
         }
 
-        setPrice("g24buy","g24sell",gram24);
-        setPrice("g21buy","g21sell",gram21);
-        setPrice("g18buy","g18sell",gram18);
-        setPrice("g14buy","g14sell",gram14);
+        setPrice("g24buy", "g24sell", gram24);
+        setPrice("g21buy", "g21sell", gram21);
+        setPrice("g18buy", "g18sell", gram18);
+        setPrice("g14buy", "g14sell", gram14);
 
         document.getElementById("coinbuy").textContent =
             Math.round(gram21 * 8) + " ج.م";
@@ -47,16 +46,15 @@ async function updateGold() {
             Math.round(gram21) + " ج.م";
 
         document.querySelector(".update").textContent =
-            "آخر تحديث: " + new Date().toLocaleTimeString("ar-EG");
+            "🔄 آخر تحديث: " + new Date().toLocaleTimeString("ar-EG");
 
-    } catch (err) {
-
-        console.error(err);
-
+    } catch (error) {
+        console.error(error);
         document.querySelector(".update").textContent =
-            "فشل تحميل الأسعار";
+            "❌ فشل تحميل الأسعار";
     }
 }
 
 updateGold();
+
 setInterval(updateGold, 60000);
