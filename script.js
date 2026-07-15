@@ -1,5 +1,7 @@
 const API_KEY = "goldapi-395db2c868032a93dd29f6071dcd1585-io";
 
+alert("الكود شغال");
+
 async function loadGold(){
 
     try {
