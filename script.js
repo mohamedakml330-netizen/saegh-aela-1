@@ -14,6 +14,8 @@ async function loadGold(){
         });
 const data = await res.json();
 
+alert(JSON.stringify(data));
+
 console.log("رد الـ API:", data);
 
 let ounce = Number(data.price || data.ask || data.metal_price);
