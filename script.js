@@ -10,19 +10,19 @@ async function loadGold(){
                 "Content-Type": "application/json"
             }
         });
+const data = await res.json();
 
-        const data = await res.json();
+console.log("رد الـ API:", data);
 
-        console.log(data);
+let ounce = Number(data.price || data.ask || data.metal_price);
 
-        if(!data.price){
-            throw new Error("لم يتم استلام سعر الذهب");
-        }
+if(!ounce){
+    throw new Error("السعر غير موجود");
+}
 
 
-        // سعر الأونصة بالدولار
-        let ounce = Number(data.price);
 
+        
 
         // سعر الدولار (هنغيره بعدين ونربطه بتاعك)
         let dollar = 50;
