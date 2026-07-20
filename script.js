@@ -1,42 +1,49 @@
 const API_URL = "https://proud-limit-a1c4.mohamedakml330.workers.dev/";
 
+function formatPrice(value) {
+  return Number(value).toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+}
+
 async function loadGold() {
   try {
     const response = await fetch(API_URL);
     const data = await response.json();
 
-    document.getElementById("g24buy").textContent = data.gold24.buy.toLocaleString("ar-EG") + " ج";
-    document.getElementById("g24sell").textContent = data.gold24.sell.toLocaleString("ar-EG") + " ج";
+    document.getElementById("g24buy").textContent = formatPrice(data.gold24.buy) + " EGP";
+    document.getElementById("g24sell").textContent = formatPrice(data.gold24.sell) + " EGP";
 
-    document.getElementById("g21buy").textContent = data.gold21.buy.toLocaleString("ar-EG") + " ج";
-    document.getElementById("g21sell").textContent = data.gold21.sell.toLocaleString("ar-EG") + " ج";
+    document.getElementById("g21buy").textContent = formatPrice(data.gold21.buy) + " EGP";
+    document.getElementById("g21sell").textContent = formatPrice(data.gold21.sell) + " EGP";
 
-    document.getElementById("g18buy").textContent = data.gold18.buy.toLocaleString("ar-EG") + " ج";
-    document.getElementById("g18sell").textContent = data.gold18.sell.toLocaleString("ar-EG") + " ج";
+    document.getElementById("g18buy").textContent = formatPrice(data.gold18.buy) + " EGP";
+    document.getElementById("g18sell").textContent = formatPrice(data.gold18.sell) + " EGP";
 
-    document.getElementById("g14buy").textContent = data.gold14.buy.toLocaleString("ar-EG") + " ج";
-    document.getElementById("g14sell").textContent = data.gold14.sell.toLocaleString("ar-EG") + " ج";
+    document.getElementById("g14buy").textContent = formatPrice(data.gold14.buy) + " EGP";
+    document.getElementById("g14sell").textContent = formatPrice(data.gold14.sell) + " EGP";
 
     document.getElementById("coinbuy").textContent =
-      data.coin.toLocaleString("ar-EG") + " ج";
+      formatPrice(data.coin) + " EGP";
 
     document.getElementById("ouncebuy").textContent =
-      data.ounce.toLocaleString("ar-EG") + " ج";
+      formatPrice(data.ounce) + " EGP";
 
     document.getElementById("kilobuy").textContent =
-      (data.gold24.buy * 1000).toLocaleString("ar-EG") + " ج";
+      formatPrice(data.gold24.buy * 1000) + " EGP";
 
     document.getElementById("screenprice").textContent =
-      data.screen.toLocaleString("ar-EG") + " $";
+      formatPrice(data.screen) + " USD";
 
-    document.querySelector(".update").innerHTML =
-      "🔄 آخر تحديث: " + data.updated;
+    document.querySelector(".update").textContent =
+      "🔄 Last Update: " + data.updated;
 
   } catch (err) {
     console.error(err);
 
-    document.querySelectorAll(".price").forEach(e => e.textContent = "خطأ");
-    document.querySelectorAll(".box p").forEach(e => e.textContent = "خطأ");
+    document.querySelectorAll(".price").forEach(e => e.textContent = "Error");
+    document.querySelectorAll(".box p").forEach(e => e.textContent = "Error");
   }
 }
 
