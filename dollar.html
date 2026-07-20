@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>سعر الدولار اليوم</title>
 
 <style>
+
 body{
     margin:0;
     background:#111;
@@ -43,54 +45,68 @@ body{
     color:#aaa;
     font-size:14px;
 }
+
 </style>
 
 </head>
 
 <body>
 
+
 <div class="header">
 💵 سعر الدولار اليوم
 </div>
+
 
 <div class="box">
 
 <h2>شراء</h2>
 <div class="price" id="buy">جاري التحميل...</div>
 
+
 <h2>بيع</h2>
 <div class="price" id="sell">جاري التحميل...</div>
 
+
 <div class="time" id="update"></div>
+
 
 </div>
 
 
+
 <script>
+
 
 async function updateDollar(){
 
 try{
 
+
 let response = await fetch(
-"https://open.er-api.com/v6/latest/USD"
+"https://api.frankfurter.app/latest?from=USD&to=EGP"
 );
+
 
 let data = await response.json();
 
-let egp = data.rates.EGP;
+
+let price = data.rates.EGP;
 
 
-// حساب تقريبي للشراء والبيع
-let buy = egp - 0.10;
-let sell = egp + 0.10;
+// فرق قريب من فرق البنوك
+let buy = price - 0.15;
+let sell = price + 0.15;
+
 
 
 document.getElementById("buy").innerHTML =
 buy.toFixed(2) + " جنيه";
 
+
 document.getElementById("sell").innerHTML =
 sell.toFixed(2) + " جنيه";
+
 
 
 document.getElementById("update").innerHTML =
@@ -112,15 +128,15 @@ document.getElementById("sell").innerHTML =
 }
 
 
-// تشغيل أول مرة
+
 updateDollar();
 
 
-// تحديث كل دقيقة
 setInterval(updateDollar,60000);
 
 
 </script>
+
 
 </body>
 </html>
