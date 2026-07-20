@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>صائغ العيلة</title>
 
 <style>
+
 body{
     margin:0;
+    background:#090909;
+    color:white;
     font-family:Tahoma, Arial, sans-serif;
-    background:#0b0b0b;
-    color:#fff;
 }
 
+/* الهيدر */
 .header{
-    background:gold;
+    background:#ffd400;
     color:#000;
     text-align:center;
     padding:18px;
@@ -22,49 +26,132 @@ body{
     font-weight:bold;
 }
 
+
+/* المحتوى */
 .container{
     padding:15px;
 }
 
+
+/* الكروت */
 .card{
     display:block;
-    background:#1a1a1a;
-    color:gold;
-    text-decoration:none;
-    padding:18px;
-    margin-bottom:12px;
-    border:1px solid gold;
+    background:#191919;
+    border:1px solid #ffd400;
     border-radius:12px;
+    padding:25px;
+    margin-bottom:15px;
     text-align:center;
-    font-size:20px;
+    color:#ffd400;
+    text-decoration:none;
+    font-size:22px;
     font-weight:bold;
-    transition:0.3s;
+    transition:.3s;
 }
 
+
 .card:hover{
-    background:gold;
+    background:#ffd400;
     color:#000;
 }
+
+
+/* الاعلان */
+.ad-box{
+
+    width:280px;
+    margin:35px auto;
+
+    border:1px dashed #ffd400;
+    border-radius:8px;
+
+    padding:12px;
+
+    color:#ffd400;
+    text-align:center;
+
+    font-size:16px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+
+}
+
+
+.ad-icon{
+    font-size:25px;
+}
+
+
+.ad-text{
+    line-height:1.5;
+}
+
+
+/* الفوتر */
+.footer{
+
+    text-align:center;
+    color:#777;
+    margin-top:80px;
+    font-size:14px;
+
+}
+
 </style>
 
 </head>
+
+
 <body>
+
 
 <div class="header">
 💎 صائغ العيلة 💎
 </div>
 
+
+
 <div class="container">
 
-<a class="card" href="gold.html">💎 أسعار الذهب</a>
 
-<a class="card" href="bullion.html">🪙 السبائك</a>  
-    
-<a class="card" href="./dollar.html">💵 الدولار</a>
+<a href="gold.html" class="card">
+💎 أسعار الذهب
+</a>
 
-<a class="card" href="currency.html">💱 العملات</a>
+
+<a href="dollar.html" class="card">
+💵 الدولار
+</a>
+
+
+
+<div class="ad-box">
+
+<div class="ad-icon">
+📢
+</div>
+
+<div class="ad-text">
+للإعلان الاتصال على<br>
+01125325171
+</div>
 
 </div>
+
+
+
+</div>
+
+
+
+<div class="footer">
+© 2026 صائغ العيلة - by Akml Mohamed
+</div>
+
+
 
 </body>
 </html>
