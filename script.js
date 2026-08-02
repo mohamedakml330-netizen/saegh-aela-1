@@ -1,9 +1,9 @@
-const API_URL = "https://proud-limit-a1c4.mohamedakml330.workers.dev/";
+const API_URL = "https://solitary-field-8e9d.mohamedadara455.workers.dev/";
 
 function formatPrice(value) {
   return Number(value).toLocaleString("en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
   });
 }
 
@@ -12,40 +12,50 @@ async function loadGold() {
     const response = await fetch(API_URL);
     const data = await response.json();
 
-    document.getElementById("g24buy").textContent = formatPrice(data.gold24.buy) + " EGP";
-    document.getElementById("g24sell").textContent = formatPrice(data.gold24.sell) + " EGP";
+    // عيار 24
+    document.getElementById("g24buy").textContent =
+      formatPrice(data.gold24) + " EGP";
 
-    document.getElementById("g21buy").textContent = formatPrice(data.gold21.buy) + " EGP";
-    document.getElementById("g21sell").textContent = formatPrice(data.gold21.sell) + " EGP";
+    // عيار 21
+    document.getElementById("g21buy").textContent =
+      formatPrice(data.gold21) + " EGP";
 
-    document.getElementById("g18buy").textContent = formatPrice(data.gold18.buy) + " EGP";
-    document.getElementById("g18sell").textContent = formatPrice(data.gold18.sell) + " EGP";
+    // عيار 18
+    document.getElementById("g18buy").textContent =
+      formatPrice(data.gold18) + " EGP";
 
-    document.getElementById("g14buy").textContent = formatPrice(data.gold14.buy) + " EGP";
-    document.getElementById("g14sell").textContent = formatPrice(data.gold14.sell) + " EGP";
+    // عيار 14
+    document.getElementById("g14buy").textContent =
+      formatPrice(data.gold14) + " EGP";
 
-    document.getElementById("coinbuy").textContent =
-      formatPrice(data.coin) + " EGP";
 
-    document.getElementById("ouncebuy").textContent =
-      formatPrice(data.ounce) + " EGP";
+    // لو عندك أماكن البيع خليها نفس السعر مؤقتاً
+    document.getElementById("g24sell").textContent =
+      formatPrice(data.gold24) + " EGP";
 
+    document.getElementById("g21sell").textContent =
+      formatPrice(data.gold21) + " EGP";
+
+    document.getElementById("g18sell").textContent =
+      formatPrice(data.gold18) + " EGP";
+
+    document.getElementById("g14sell").textContent =
+      formatPrice(data.gold14) + " EGP";
+
+
+    // كيلو الذهب
     document.getElementById("kilobuy").textContent =
-      formatPrice(data.gold24.buy * 1000) + " EGP";
+      formatPrice(data.gold24 * 1000) + " EGP";
 
-    document.getElementById("screenprice").textContent =
-      formatPrice(data.screen) + " USD";
 
-    document.querySelector(".update").textContent =
-      "🔄 Last Update: " + data.updated;
+    console.log("تم تحديث أسعار الذهب", data);
 
-  } catch (err) {
-    console.error(err);
-
-    document.querySelectorAll(".price").forEach(e => e.textContent = "Error");
-    document.querySelectorAll(".box p").forEach(e => e.textContent = "Error");
+  } catch (error) {
+    console.log("خطأ في جلب الأسعار:", error);
   }
 }
 
 loadGold();
+
+// تحديث كل دقيقة
 setInterval(loadGold, 60000);
