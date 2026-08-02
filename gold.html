@@ -1,297 +1,79 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+const API_URL = "https://solitary-field-8e9d.mohamedadara455.workers.dev/";
 
-<title>صائغ العيلة - أسعار الذهب</title>
-
-<style>
-*{
-box-sizing:border-box;
-font-family:Tahoma,Arial,sans-serif;
-}
-
-body{
-margin:0;
-background:#080808;
-color:white;
+function formatPrice(value) {
+    return Number(value).toLocaleString("en-US", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    }) + " EGP";
 }
 
 
-/* العنوان */
-.header{
-background:linear-gradient(135deg,#8b6508,#ffd700,#8b6508);
-color:#111;
-padding:15px;
-text-align:center;
-font-size:25px;
-font-weight:bold;
-border-radius:0 0 20px 20px;
+async function loadGold(){
+
+try{
+
+const response = await fetch(API_URL);
+const data = await response.json();
+
+
+// عيار 24
+document.getElementById("g24buy").innerHTML = formatPrice(data.gold24);
+document.getElementById("g24sell").innerHTML = formatPrice(data.gold24);
+
+
+// عيار 21
+document.getElementById("g21buy").innerHTML = formatPrice(data.gold21);
+document.getElementById("g21sell").innerHTML = formatPrice(data.gold21);
+
+
+// عيار 18
+document.getElementById("g18buy").innerHTML = formatPrice(data.gold18);
+document.getElementById("g18sell").innerHTML = formatPrice(data.gold18);
+
+
+// عيار 14
+document.getElementById("g14buy").innerHTML = formatPrice(data.gold14);
+document.getElementById("g14sell").innerHTML = formatPrice(data.gold14);
+
+
+
+// جنيه الذهب (8 جرام عيار 21)
+document.getElementById("coinbuy").innerHTML =
+formatPrice(data.gold21 * 8);
+
+
+// الأونصة (31.103 جرام عيار 24)
+document.getElementById("ouncebuy").innerHTML =
+formatPrice(data.gold24 * 31.103);
+
+
+// كيلو الذهب
+document.getElementById("kilobuy").innerHTML =
+formatPrice(data.gold24 * 1000);
+
+
+// الشاشة (مؤقت)
+document.getElementById("screenprice").innerHTML =
+formatPrice(data.gold21);
+
+
+console.log("Gold Updated:", data);
+
+
+}
+
+catch(error){
+
+console.log("Error:",error);
+
+}
+
 }
 
 
-/* المعلومات */
-.info{
-margin:10px;
-background:#151515;
-border:1px solid #d4af37;
-border-radius:15px;
-padding:12px;
-text-align:center;
-}
+// تشغيل أول مرة
+loadGold();
 
-.info h2{
-color:#ffd700;
-font-size:17px;
-margin:5px;
-}
 
-.info p{
-color:#ddd;
-font-size:13px;
-line-height:1.6;
-margin:5px;
-}
-
-
-/* التحديث */
-.update{
-text-align:center;
-color:#ffd700;
-margin:8px;
-font-size:14px;
-}
-
-
-/* الجدول */
-.container{
-padding:8px;
-}
-
-.table-title{
-display:grid;
-grid-template-columns:1fr 1fr 1fr;
-background:#d4af37;
-color:#111;
-padding:10px;
-font-weight:bold;
-border-radius:12px 12px 0 0;
-text-align:center;
-}
-
-
-.card{
-display:grid;
-grid-template-columns:1fr 1fr 1fr;
-background:#171717;
-padding:10px;
-border-bottom:1px solid #333;
-text-align:center;
-align-items:center;
-}
-
-
-.name{
-color:#ffd700;
-font-weight:bold;
-font-size:15px;
-}
-
-
-.price{
-font-size:17px;
-font-weight:bold;
-}
-
-
-/* الكروت السفلية */
-.cards{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px;
-margin-top:10px;
-}
-
-
-.box{
-background:#151515;
-border:1px solid #d4af37;
-border-radius:15px;
-padding:12px;
-text-align:center;
-}
-
-
-.box h3{
-color:#ffd700;
-font-size:15px;
-margin:5px;
-}
-
-
-.box p{
-font-size:15px;
-margin:5px;
-}
-
-
-/* الاعلان */
-.ads{
-margin:12px 8px;
-background:#151515;
-border:2px dashed #ffd700;
-border-radius:15px;
-padding:15px;
-text-align:center;
-}
-
-
-.ads h2{
-color:#ffd700;
-font-size:18px;
-}
-
-
-.ads p{
-font-size:18px;
-}
-
-
-/* الفوتر */
-.footer{
-text-align:center;
-color:#777;
-padding:15px;
-font-size:13px;
-}
-
-
-</style>
-
-</head>
-
-<body>
-
-
-<div class="header">
-💎 صائغ العيلة
-<br>
-أسعار الذهب
-</div>
-
-
-<div class="info">
-<h2>متوسط أسعار الذهب الاسترشادي المصري</h2>
-
-<p>
-يخصم محل التجزئة عمولة عند شراء الكسر بداية من 1%
-</p>
-
-</div>
-
-
-<div class="update">
-🔄 آخر تحديث: تلقائي
-</div>
-
-
-<div class="container">
-
-
-<div class="table-title">
-<div>العيار</div>
-<div>شراء</div>
-<div>بيع</div>
-</div> 
- <!-- عيار 24 -->
-<div class="card">
-<div class="name">ذهب عيار 24</div>
-<div class="price" id="g24buy">تحميل...</div>
-<div class="price" id="g24sell">تحميل...</div>
-</div>
-
-
-<!-- عيار 21 -->
-<div class="card">
-<div class="name">ذهب عيار 21</div>
-<div class="price" id="g21buy">تحميل...</div>
-<div class="price" id="g21sell">تحميل...</div>
-</div>
-
-
-<!-- عيار 18 -->
-<div class="card">
-<div class="name">ذهب عيار 18</div>
-<div class="price" id="g18buy">تحميل...</div>
-<div class="price" id="g18sell">تحميل...</div>
-</div>
-
-
-<!-- عيار 14 -->
-<div class="card">
-<div class="name">ذهب عيار 14</div>
-<div class="price" id="g14buy">تحميل...</div>
-<div class="price" id="g14sell">تحميل...</div>
-</div>
-
-
-
-<!-- البطاقات السفلية -->
-
-<div class="cards">
-
-
-<div class="box">
-<h3>🪙 جنيه الذهب</h3>
-<p id="coinbuy">تحميل...</p>
-</div>
-
-
-<div class="box">
-<h3>🌕 الأونصة الذهبية</h3>
-<p id="ouncebuy">تحميل...</p>
-</div>
-
-
-<div class="box">
-<h3>🟡 كيلو ذهب عيار 24</h3>
-<p id="kilobuy">تحميل...</p>
-</div>
-
-
-<div class="box">
-<h3>📺 الشاشة</h3>
-<p id="screenprice">تحميل...</p>
-</div>
-
-
-</div>
-
-</div>
-
-
-<!-- مكان الإعلان -->
-
-<div class="ads">
-
-<h2>📢 للإعلان</h2>
-
-<p>
-الاتصال بـ 01125325171
-</p>
-
-</div>
-
-
-<div class="footer">
- by Akml Mohamed© 2026 صائغ العيلة
-</div>
-
-
-
-<script src="script.js"></script>
-
-
-</body>
-</html>
+// تحديث كل دقيقة
+setInterval(loadGold,60000);
