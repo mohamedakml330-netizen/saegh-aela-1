@@ -3,45 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>الدولار | صائغ العيلة</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Tahoma,Arial,sans-serif;
-}
-
 body{
+margin:0;
 background:#0b0b0b;
+font-family:Tahoma,Arial;
 color:#fff;
 text-align:center;
 }
 
-header{
+.header{
 background:#111;
 padding:20px;
-border-bottom:2px solid #d4af37;
+border-bottom:2px solid gold;
 }
 
-header h1{
-color:#d4af37;
-font-size:32px;
+.header h1{
+color:gold;
+margin:0;
 }
 
-header p{
-color:#ccc;
-margin-top:8px;
-}
-
-.box{
+.card{
 width:90%;
 max-width:500px;
 margin:30px auto;
 background:#181818;
-border:2px solid #d4af37;
+border:2px solid gold;
 border-radius:15px;
 padding:25px;
 }
@@ -54,39 +43,31 @@ margin:20px 0;
 }
 
 .time{
-color:#aaa;
+color:#bbb;
 font-size:15px;
-margin-top:15px;
 }
 
-.refresh{
+button{
 margin-top:20px;
-background:#d4af37;
-color:#000;
-border:none;
 padding:12px 25px;
-border-radius:8px;
 font-size:18px;
+background:gold;
+border:none;
+border-radius:8px;
 cursor:pointer;
-}
-
-.refresh:hover{
-background:#f0c64b;
 }
 
 .ad{
 width:90%;
 max-width:500px;
 margin:20px auto;
-border:2px dashed #d4af37;
+border:2px dashed gold;
 padding:20px;
-border-radius:15px;
-font-size:18px;
+border-radius:12px;
 }
 
 footer{
-margin-top:35px;
-padding:20px;
+margin:30px;
 color:#888;
 }
 </style>
@@ -95,61 +76,68 @@ color:#888;
 
 <body>
 
-<header>
+<div class="header">
 <h1>💵 صائغ العيلة</h1>
-<p>سعر الدولار الأمريكي مقابل الجنيه المصري</p>
-</header>
+<p>سعر الدولار مقابل الجنيه المصري</p>
+</div>
 
-<div class="box">
+<div class="card">
 
 <h2>الدولار الأمريكي</h2>
 
-<div class="price" id="price">
+<div id="price" class="price">
 جاري التحميل...
 </div>
 
-<div class="time" id="time">
-...
-</div>
+<div id="time" class="time"></div>
 
-<button class="refresh" onclick="loadPrice()">
-تحديث الآن
+<button onclick="loadPrice()">
+تحديث
 </button>
 
 </div>
 
 <div class="ad">
-📞 للإعلان الاتصال على<br><br>
+📞 للإعلان<br>
 01125325171
 </div>
 
 <footer>
-© 2026 صائغ العيلة - By Akml Mohamed
+© 2026 صائغ العيلة
 </footer>
 
 <script>
 
 async function loadPrice(){
 
+document.getElementById("price").innerHTML="جاري التحميل...";
+
 try{
 
-const response = await fetch("https://api.frankfurter.dev/v2/rates?base=USD&quotes=EGP");
+const res = await fetch("https://api.frankfurter.dev/v2/rates?base=USD&quotes=EGP");
 
-const data = await response.json();
+const data = await res.json();
 
-let price = data[0].rate;
+if(Array.isArray(data) && data.length>0){
 
-document.getElementById("price").innerHTML =
+const price=data[0].rate;
+
+document.getElementById("price").innerHTML=
 price.toFixed(2)+" جنيه";
 
-document.getElementById("time").innerHTML =
-"آخر تحديث : "+new Date().toLocaleString("ar-EG");
+document.getElementById("time").innerHTML=
+"آخر تحديث: "+data[0].date;
 
-}catch(error){
+}else{
+
+document.getElementById("price").innerHTML="لا توجد بيانات";
+
+}
+
+}catch(e){
 
 document.getElementById("price").innerHTML="فشل تحميل السعر";
-
-console.log(error);
+console.log(e);
 
 }
 
